@@ -1,11 +1,6 @@
-body {
-    background: url(assets/images/space.jfif);
-}    
-
 h1 {
     text-align: center;
 }
-
 .image {
     display: block;
     margin-left: auto;
@@ -13,7 +8,6 @@ h1 {
     width: 50%;
     border-radius: 50%;
 }
-
 .button {
     text-align: center;
     padding-bottom: 2rem;
