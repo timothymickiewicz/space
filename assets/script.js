@@ -6,17 +6,17 @@ function nasaDaily() {
     }).then(function(response) {
       console.log(response);
       console.log(response.hdurl);
-      $("document.body").css("background", response.hdurl)
+      $("document.body").css("background-image", response.hdurl)
     });
   }
+  var input = "Jupiter";
   function solarSystem() {
-    var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"
+    var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input + "";
       $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
       console.log(response);
-      $("document.body").css("background", response.hdurl)
     });
   }
 solarSystem();
