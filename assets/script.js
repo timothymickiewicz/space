@@ -2,12 +2,21 @@ var input = "";
 var countImages = 0;
 var randomImage = 0;
 
+// Adding current time to the page
+function startTimer() {
+    setInterval(function() {
+        var currentTime = moment().add(1, "s").format("MMMM Do YYYY, h:mm:ss a");
+        $("#time").text(currentTime);
+    }, 1000);
+}
+startTimer();
+
 // Initializes the carousel's innate jQuery functions on document ready
 $(document).ready(function(){
   $('.carousel').carousel();
 });
 
-// Pulls the daily image from nasa. We need to figure out a way to fit this into our pages background.
+// Pulls the daily image from nasa. We need to figure out a way to fit this into our page's background.
 function nasaDaily() {
     var queryURL = "https://api.nasa.gov/planetary/apod?api_key=Yfd3EoVaBZUUjUbAFFCMtvK2qtoSIxWDPUJQzjdP";
       $.ajax({
@@ -19,7 +28,7 @@ function nasaDaily() {
     });
   }
 
-// Pulls a planets information
+// Pulls a planet's information
 function solarSystem() {
   var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input + "";
     $.ajax({
@@ -35,7 +44,7 @@ nasaDaily();
 
 // Creates a carousel of random planet images from the NASA planet pics API, will likely hard-code the Earth and Mars images with an if/else if statement because those two planet's pics kind of suck in this API (pics of rovers and random humans?)
 function planetImagesCarousel() {
-  var queryURL = "https://images-api.nasa.gov/search?q="+ input + "";
+  var queryURL = "https://images-api.nasa.gov/search?q="+ input;
   $.ajax({
     url: queryURL,
     method: "GET"
