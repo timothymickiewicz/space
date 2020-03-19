@@ -12,21 +12,23 @@
 <body>
     <div class="container"></div>
         <h1>Coming Soon!</h1>
+        <!-- Need to resize this -->
+        <select name="planets" class="ui dropdown" id="select">
+            <option value="Mercury">Mercury</option>
+            <option value="Venus">Venus</option>
+            <option value="Earth">Earth</option>
+            <option value="Mars">Mars</option>
+            <option value="Jupiter">Jupiter</option>
+            <option value="Saturn">Saturn</option>
+            <option value="Uranus">Uranus</option>
+            <option value="Neptune">Neptune</option>
+            <option value="Pluto">Pluto*</option>
+        </select>
+        <!-- Added a listener to capture the dropdown value on click and if they hit the enter key, can add this button beside the dropdown or wherever looks best -->
         <div class="button">
-            <input type="text" size=18 name="output" id="planet">
-            <input type ="button" value="search" id= generate>
+            <input type ="button" value="search" id="planetSearch">
         </div>
 
-        <select name="gender" class="ui dropdown" id="select">
-            <option value="">Mercury</option>
-            <option value="">Venus</option>
-            <option value="">Mars</option>
-            <option value="">Jupiter</option>
-            <option value="">Saturn</option>
-            <option value="">Uranus</option>
-            <option value="">Neptune</option>
-            <option value="">Pluto*</option>
-        </select>
         <!-- Carousel from Materialize -->
         <div class="carousel">
             <a class="carousel-item" href="#one!"><img class="planetImage"></a>
@@ -43,8 +45,8 @@
       
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.js"
-            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-            crossorigin="anonymous"></script>
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
     <script src="assets/script.js"></script>
