@@ -1,4 +1,4 @@
-var input = "Mars"; //This input is for testing purposes only
+var input = "Saturn"; //This input is for testing purposes only
 var countImages = 0;
 var randomImage = 0;
 // When document is ready, carousel jQuery will be initialized. We can remove planetImagesCarousel() from here and only call it when user clicks on something, or we can hide it with css "display = none" until user clicks on something. Just leaving it called right now so that you guys can see it.
