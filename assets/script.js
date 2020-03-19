@@ -30,7 +30,7 @@ function nasaDaily() {
 
 // Pulls a planet's information
 function solarSystem() {
-  var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input + "";
+  var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input;
     $.ajax({
     url: queryURL,
     method: "GET"
@@ -68,4 +68,4 @@ $(document).on("keypress", function(x) {
 $("#planetSearch").on("click", function() {
   input = $(".dropdown").val();
   planetImagesCarousel();
-})
+});
