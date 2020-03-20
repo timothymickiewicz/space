@@ -75,8 +75,8 @@ function solarSystem() {
         $("<td>").text(response.moons[i].moon).appendTo("#newRow6");
       }
       else if (i > 71 && i <= 81) {
-        $("<tr>").attr("id", "newRow6").appendTo("tbody");
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow6");
+        $("<tr>").attr("id", "newRow7").appendTo("tbody");
+        $("<td>").text(response.moons[i].moon).appendTo("#newRow7");
       }
     }
   });
