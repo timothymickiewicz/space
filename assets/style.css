@@ -28,4 +28,7 @@ h1 {
 .planetImage {
     border-radius: 1vw;
 }
+td {
+    color: white;
+}
 
