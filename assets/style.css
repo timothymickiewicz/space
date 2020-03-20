@@ -14,6 +14,8 @@ h1 {
     text-align: center;
     color: white;
 }
+
+/* Styling for carousel */
 .image {
     display: block;
     margin-left: auto;
@@ -28,7 +30,17 @@ h1 {
 .planetImage {
     border-radius: 1vw;
 }
+
+/* Styling for the table */
 td {
     color: white;
 }
-
+#moonsOfPlanet {
+    text-align: center;
+    color: white;
+}
+#noMoons {
+    text-align: center;
+    margin-top: 2vw;
+    color: white;
+}

@@ -45,42 +45,48 @@ function solarSystem() {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response);
-    for (i=0; i < response.moons.length; i++) {
-      if (i <= 10) {
-      $("<td>").appendTo("#moons").text(response.moons[i].moon);
-      }
-      else if (i > 10 && i <= 21) {
-        $("<tr>").attr("id", "newRow").appendTo("tbody");
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow");
-      }
-      else if (i > 21 && i <= 31) {
-        $("<tr>").attr("id", "newRow2").appendTo("tbody");
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow2");
-      }
-      else if (i > 31 && i <= 41) {
-        $("<tr>").attr("id", "newRow3").appendTo("tbody");
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow3");
-      }
-      else if (i > 41 && i <= 51) {
-        $("<tr>").attr("id", "newRow4").appendTo("tbody");
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow4");
-      }
-      else if (i > 51 && i <= 61) {
-        $("<tr>").attr("id", "newRow5").appendTo("tbody");
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow5");
-      }
-      else if (i > 61 && i <= 71) {
-        $("<tr>").attr("id", "newRow6").appendTo("tbody");
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow6");
-      }
-      else if (i > 71 && i <= 81) {
-        $("<tr>").attr("id", "newRow7").appendTo("tbody");
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow7");
-      }
+    console.log(response.moons);
+    $("h2").append("Moons of " + input).attr("id", "moonsOfPlanet");
+    if (!$.trim(response.moons)) {
+      $("<p>").appendTo("h2").text(input + " has no moons on record.").attr("id", "noMoons");
     }
+    else {
+      for (i=0; i <= response.moons.length; i++) {
+        if (i <= 10) {
+          $("<td>").appendTo("#moons").text(response.moons[i].moon);
+          }
+        else if (i > 10 && i <= 21) {
+          $("<tr>").attr("id", "newRow").appendTo("tbody");
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow");
+        }
+        else if (i > 21 && i <= 31) {
+          $("<tr>").attr("id", "newRow2").appendTo("tbody");
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow2");
+        }
+        else if (i > 31 && i <= 41) {
+          $("<tr>").attr("id", "newRow3").appendTo("tbody");
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow3");
+        }
+        else if (i > 41 && i <= 51) {
+          $("<tr>").attr("id", "newRow4").appendTo("tbody");
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow4");
+        }
+        else if (i > 51 && i <= 61) {
+          $("<tr>").attr("id", "newRow5").appendTo("tbody");
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow5");
+        }
+        else if (i > 61 && i <= 71) {
+          $("<tr>").attr("id", "newRow6").appendTo("tbody");
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow6");
+        }
+        else if (i > 71 && i <= 81) {
+          $("<tr>").attr("id", "newRow7").appendTo("tbody");
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow7");
+        }
+      };
+    };
   });
-}
+};
 
 // Initializes the carousel's innate jQuery functions on document ready
 $(document).ready(function(){
