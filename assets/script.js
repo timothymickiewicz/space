@@ -93,8 +93,18 @@ $(document).ready(function(){
   $('.carousel').carousel();
   startTimer();
 
-  // Captures users input when they hit the enter key or hit the button, then runs the respective carousel of images. Later functions will likely be stored in these events also.
+  // Captures users input when they hit the enter key or hit the button, then runs the respective carousel of images. Later functions will likely be stored in these events also. *RH added empty to clear on selection
   $(document).on("keypress", function(x) {
+    $("#moonsOfPlanet").empty();
+    $("#moons").empty();
+    $("#newRow").empty();
+    $("#newRow2").empty();
+    $("#newRow3").empty();
+    $("#newRow4").empty();
+    $("#newRow5").empty();
+    $("#newRow6").empty();
+    $("#newRow7").empty();
+
     if(x.which == 13) {
       input = $(".dropdown").val();
       planetImagesCarousel();   
@@ -102,6 +112,16 @@ $(document).ready(function(){
     }
   });
   $("#planetSearch").on("click", function() {
+    $("#moonsOfPlanet").empty();
+    $("#moons").empty();
+    $("#newRow").empty();
+    $("#newRow2").empty();
+    $("#newRow3").empty();
+    $("#newRow4").empty();
+    $("#newRow5").empty();
+    $("#newRow6").empty();
+    $("#newRow7").empty();
+    
     input = $(".dropdown").val();
     planetImagesCarousel();
     solarSystem();
