@@ -144,6 +144,15 @@ function solarSystem() {
     method: "GET"
   }).then(function(response) {
     console.log(response);
+      console.log("Planet Name " + response.englishName);
+      console.log("Moons: " + response.moons.length);
+      console.log("Diameter (km): " + response.meanRadius * 2);
+      console.log("Density (kg/m&3): " + response.density * 1000);
+      console.log("Gravity (eq.,1 bar) (m/s&2): " + response.gravity);
+      console.log("Discovered By: " + response.discoveredBy);
+      console.log("Discovery Date: " + response.discoveryDate);
+    
+
   });
 }
 
