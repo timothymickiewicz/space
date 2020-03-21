@@ -11,25 +11,58 @@
 </head>
 <body>
     <div class="container"></div>
-        <h1>Coming Soon!</h1>
-        <div id="time"></div>
-        <div id="wrapInput">
-            <!-- Need to resize this -->
-            <select name="planets" class="ui dropdown" id="select">
-                <option value="Mercury">Mercury</option>
-                <option value="Venus">Venus</option>
-                <option value="Earth">Earth</option>
-                <option value="Mars">Mars</option>
-                <option value="Jupiter">Jupiter</option>
-                <option value="Saturn">Saturn</option>
-                <option value="Uranus">Uranus</option>
-                <option value="Neptune">Neptune</option>
-                <option value="Pluto">Pluto*</option>
-            </select>
-            <div class="button">
-                <input type ="button" value="search" id="planetSearch">
+        
+        <!-- grid for 16 wide columns (semantic-ui) -->
+        <div class="ui grid">
+            <div class="sixteen wide column">
+                <h1>Space Exploration: Planets</h1>
+                    <div id="time"></div>
+            </div>
+            <div class="sixteen wide column">
+                <div id="wrapInput">
+                    <!-- Need to resize this https://semantic-ui.com/modules/dropdown.html-->
+                    <select name="planets" class="ui dropdown" id="select">
+        
+                        <option value="Mercury">Mercury</option>
+                        <option value="Venus">Venus</option>
+                        <option value="Earth">Earth</option>
+                        <option value="Mars">Mars</option>
+                        <option value="Jupiter">Jupiter</option>
+                        <option value="Saturn">Saturn</option>
+                        <option value="Uranus">Uranus</option>
+                        <option value="Neptune">Neptune</option>
+                        <option value="Pluto">Pluto*</option>
+                    </select>
+                    <div class="button">
+                        <input type ="button" value="search" id="planetSearch">
+                    </div>
+                </div>
             </div>
         </div>
+        
+        
+
+
+        <!-- semantic-ui three column grid for leftdata - carousel - rightdata -->
+
+        <div class="ui three column grid">
+            <div class="column">
+              <div class="ui segment">
+                  <div id="leftdata">Left Data</div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="ui segment">
+                  <div id="carousel">Center Carousel</div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="ui segment">
+                  <div id="rightdata">Right Data</div> 
+              </div>
+            </div>
+          </div>
+
         <div class ="column">
             <h2></h2>
             <table class="top attached ui basic table">
