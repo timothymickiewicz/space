@@ -44,3 +44,40 @@ td {
     margin-top: 2vw;
     color: white;
 }
+#randomImages {
+    background-color: blue;
+}
+#wrapCarousel {
+    text-align: center;
+}
+
+#leftdata {
+    text-align: center;
+    color: white;
+    
+}
+
+#rightdata {
+    text-align: center;
+    color: white;
+    
+}
+
+#carousel {
+    text-align: center;
+    color: white;
+    
+}
+
+#wrapInput {
+    padding-left: 45%;
+    padding-right: 45%;
+    
+}
+
+.button {
+    padding-top: 1rem;
+}
+
+
+
