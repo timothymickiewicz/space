@@ -120,6 +120,21 @@ function nasaDaily() {
   });
 }
 
+// A carousel randomizer with images of the selected planet
+function randomImagesCarousel() {
+  var queryURL = "https://images-api.nasa.gov/search?q="+ input;
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    console.log(response);
+    for (var i = 0; i < 10; i++) {
+      countImages = response.collection.items.length;
+      randomImage = Math.floor(Math.random() * countImages);
+      $(".planetImage:eq(" + i + ")").attr("src", response.collection.items[randomImage].links[0].href);
+    };
+  });
+}
 // Creates a carousel of random planet images from the NASA planet pics API, will likely hard-code the Earth and Mars images with an if/else if statement because those two planet's pics kind of suck in this API (pics of rovers and random humans?)
 function planetImagesCarousel() {
   var queryURL = "https://images-api.nasa.gov/search?q="+ input;
@@ -214,10 +229,15 @@ $(document).ready(function(){
         var concatNum = j.toString();
         $("#newRow" + concatNum).empty();
       }
+      $("<button>").attr("id", "randomImages").appendTo("#wrapCarousel").text("View NASA images");
+      $("#randomImages").on("click", function() {
+        randomImagesCarousel();
+      })
       planetImagesCarousel();   
       solarSystem();
     };
   });
+
   $("#planetSearch").on("click", function() {
     $("#moonsOfPlanet").empty();
     $("#moons").empty();
@@ -226,8 +246,11 @@ $(document).ready(function(){
       $("#newRow" + concatNum).empty();
     };
     input = $(".dropdown").val();
+    $("<button>").attr("id", "randomImages").appendTo("#wrapCarousel").text("View NASA images");
+    $("#randomImages").on("click", function() {
+      randomImagesCarousel();
+    })
     planetImagesCarousel();
     solarSystem();
   });
-
 });
