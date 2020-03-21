@@ -205,6 +205,15 @@ $(document).ready(function(){
       solarSystem();
     };
   });
+  
+  var yourobject = [mercury, venus, uranus, neptune, mars, pluto, earth, saturn,jupiter];
+  var key = planetSearch;
+
+  for (var key in yourobject) {
+    if (yourobject.hasOwnProperty(key)) {
+       console.log(key, yourobject[key]);
+    }
+ }
   $("#planetSearch").on("click", function() {
     $("#moonsOfPlanet").empty();
     $("#moons").empty();
