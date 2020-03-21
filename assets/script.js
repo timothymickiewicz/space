@@ -51,12 +51,12 @@ function solarSystem() {
       $("<p>").appendTo("h2").text(input + " has no moons on record.").attr("id", "noMoons");
     }
     else {
-      for (i=0; i <= response.moons.length; i++) {
+      for (var i=0; i <= response.moons.length; i++) {
         if (i <= 10) {
           $("<td>").appendTo("#moons").text(response.moons[i].moon);
           }
         else if (i > 10 && i <= 21) {
-          $("<tr>").attr("id", "newRow").appendTo("tbody");
+          $("<tr>").attr("id", "newRow1").appendTo("tbody");
           $("<td>").text(response.moons[i].moon).appendTo("#newRow");
         }
         else if (i > 21 && i <= 31) {
@@ -95,33 +95,25 @@ $(document).ready(function(){
 
   // Captures users input when they hit the enter key or hit the button, then runs the respective carousel of images. Later functions will likely be stored in these events also. *RH added empty to clear on selection
   $(document).on("keypress", function(x) {
-    $("#moonsOfPlanet").empty();
-    $("#moons").empty();
-    $("#newRow").empty();
-    $("#newRow2").empty();
-    $("#newRow3").empty();
-    $("#newRow4").empty();
-    $("#newRow5").empty();
-    $("#newRow6").empty();
-    $("#newRow7").empty();
-
     if(x.which == 13) {
       input = $(".dropdown").val();
+      $("#moonsOfPlanet").empty();
+      $("#moons").empty();
+      for (var j=0; j <= 7; j++) {
+        var concatNum = j.toString();
+        $("#newRow" + concatNum).empty();
+      }
       planetImagesCarousel();   
       solarSystem();
-    }
+    };
   });
   $("#planetSearch").on("click", function() {
     $("#moonsOfPlanet").empty();
     $("#moons").empty();
-    $("#newRow").empty();
-    $("#newRow2").empty();
-    $("#newRow3").empty();
-    $("#newRow4").empty();
-    $("#newRow5").empty();
-    $("#newRow6").empty();
-    $("#newRow7").empty();
-    
+    for (var j=0; j <= 7; j++) {
+      var concatNum = j.toString();
+      $("#newRow" + concatNum).empty();
+    };
     input = $(".dropdown").val();
     planetImagesCarousel();
     solarSystem();
