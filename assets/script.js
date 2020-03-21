@@ -1,3 +1,7 @@
+
+var yourobject = [mercury, venus, uranus, neptune, mars, pluto, earth, saturn,jupiter];
+var key = planetSearch;
+
 var mercury = {
   type: "Rocky, terrestrial",
   positionFromTheSun: "First planet in the solar system",
