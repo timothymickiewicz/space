@@ -120,6 +120,21 @@ function nasaDaily() {
   });
 }
 
+// A carousel randomizer with images of the selected planet
+function randomImagesCarousel() {
+  var queryURL = "https://images-api.nasa.gov/search?q="+ input;
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    console.log(response);
+    for (var i = 0; i < 10; i++) {
+      countImages = response.collection.items.length;
+      randomImage = Math.floor(Math.random() * countImages);
+      $(".planetImage:eq(" + i + ")").attr("src", response.collection.items[randomImage].links[0].href);
+    };
+  });
+}
 // Creates a carousel of random planet images from the NASA planet pics API, will likely hard-code the Earth and Mars images with an if/else if statement because those two planet's pics kind of suck in this API (pics of rovers and random humans?)
 function planetImagesCarousel() {
   var queryURL = "https://images-api.nasa.gov/search?q="+ input;
@@ -143,6 +158,18 @@ function solarSystem() {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
+      console.log(response);
+      
+      console.log("Planet Name " + response.englishName);
+      console.log("Moons: " + response.moons.length);
+      console.log("Diameter (km): " + response.meanRadius * 2);
+      console.log("Density (kg/m&3): " + response.density * 1000);
+      console.log("Gravity (eq.,1 bar) (m/s&2): " + response.gravity);
+      console.log("Discovered By: " + response.discoveredBy);
+      console.log("Discovery Date: " + response.discoveryDate);
+    
+
+
     console.log(response.moons);
     $("h2").append("Moons of " + input).attr("id", "moonsOfPlanet");
     if (!$.trim(response.moons)) {
@@ -183,6 +210,7 @@ function solarSystem() {
         }
       };
     };
+
   });
 };
 
@@ -201,6 +229,10 @@ $(document).ready(function(){
         var concatNum = j.toString();
         $("#newRow" + concatNum).empty();
       }
+      $("<button>").attr("id", "randomImages").appendTo("#wrapCarousel").text("View NASA images");
+      $("#randomImages").on("click", function() {
+        randomImagesCarousel();
+      })
       planetImagesCarousel();   
       solarSystem();
     };
@@ -214,6 +246,7 @@ $(document).ready(function(){
        console.log(key, yourobject[key]);
     }
  }
+
   $("#planetSearch").on("click", function() {
     $("#moonsOfPlanet").empty();
     $("#moons").empty();
@@ -222,8 +255,11 @@ $(document).ready(function(){
       $("#newRow" + concatNum).empty();
     };
     input = $(".dropdown").val();
+    $("<button>").attr("id", "randomImages").appendTo("#wrapCarousel").text("View NASA images");
+    $("#randomImages").on("click", function() {
+      randomImagesCarousel();
+    })
     planetImagesCarousel();
     solarSystem();
   });
-
 });
