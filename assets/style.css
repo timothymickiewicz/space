@@ -44,3 +44,9 @@ td {
     margin-top: 2vw;
     color: white;
 }
+#randomImages {
+    background-color: blue;
+}
+#wrapCarousel {
+    text-align: center;
+}
