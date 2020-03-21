@@ -210,14 +210,17 @@ $(document).ready(function(){
     };
   });
   
-  var yourobject = [mercury, venus, uranus, neptune, mars, pluto, earth, saturn,jupiter];
-  var key = planetSearch;
-
+  
   for (var key in yourobject) {
     if (yourobject.hasOwnProperty(key)) {
        console.log(key, yourobject[key]);
     }
  }
+ function planetSearch(){
+ $('planetSearch').on('click', function() { 
+   console.log(planetSearch);
+ });
+}
   $("#planetSearch").on("click", function() {
     $("#moonsOfPlanet").empty();
     $("#moons").empty();
@@ -228,6 +231,7 @@ $(document).ready(function(){
     input = $(".dropdown").val();
     planetImagesCarousel();
     solarSystem();
+    planetSearch();
   });
 
 });
