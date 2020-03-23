@@ -178,57 +178,55 @@ function solarSystem() {
       $("<p>").appendTo("h2").text(input + " has no moons on record.").attr("id", "noMoons");
     }
     else {
-      for (var i=0; i <= response.moons.length; i++) {
-        if (i <= 10) {
-          $("<td>").appendTo("#moons").text(response.moons[i].moon);
-          }
-        else if (i > 10 && i <= 21) {
-          $("<tr>").attr("id", "newRow1").appendTo("tbody");
-          $("<td>").text(response.moons[i].moon).appendTo("#newRow");
+      if (response.moons.length) {
+        let rowCount = Math.ceil(response.moons.length / 10);
+        for (var i=0; i < rowCount; i++) {
+          $("<tr>").attr("id", "newRow" + i).appendTo("tbody");
         }
-        else if (i > 21 && i <= 31) {
-          $("<tr>").attr("id", "newRow2").appendTo("tbody");
+      }
+      for (var i=0; i < response.moons.length; i++) {
+        if (i < 10) {
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow0");
+          }
+        else if (i >= 10 && i < 20) {
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow1");
+        }
+        else if (i >= 20 && i < 30) {
           $("<td>").text(response.moons[i].moon).appendTo("#newRow2");
         }
-        else if (i > 31 && i <= 41) {
-          $("<tr>").attr("id", "newRow3").appendTo("tbody");
+        else if (i >= 30 && i < 40) {
           $("<td>").text(response.moons[i].moon).appendTo("#newRow3");
         }
-        else if (i > 41 && i <= 51) {
-          $("<tr>").attr("id", "newRow4").appendTo("tbody");
+        else if (i >= 40 && i < 50) {
           $("<td>").text(response.moons[i].moon).appendTo("#newRow4");
         }
-        else if (i > 51 && i <= 61) {
-          $("<tr>").attr("id", "newRow5").appendTo("tbody");
+        else if (i >= 50 && i < 60) {
           $("<td>").text(response.moons[i].moon).appendTo("#newRow5");
         }
-        else if (i > 61 && i <= 71) {
-          $("<tr>").attr("id", "newRow6").appendTo("tbody");
+        else if (i >= 60 && i < 70) {
           $("<td>").text(response.moons[i].moon).appendTo("#newRow6");
         }
-        else if (i > 71 && i <= 81) {
-          $("<tr>").attr("id", "newRow7").appendTo("tbody");
+        else if (i >= 70 && i < 80) {
           $("<td>").text(response.moons[i].moon).appendTo("#newRow7");
         }
       };
     };
-
   });
 };
 
+// Empties the existing content
 function emptyPage() {
   $("#moonsOfPlanet").empty();
-  $("#moons").empty();
   $("#noMoons").empty();
   $("#randomImagesBtn").unbind();
   for (var j=0; j <= 7; j++) {
-    var concatNum = j.toString();
-    $("#newRow" + concatNum).empty();
-  }
-}
+    $("#newRow" + j).remove();
+  };
+};
+
 // Initializes the carousel's innate jQuery functions on document ready
 $(document).ready(function(){
-  $('.carousel').carousel();
+  $(".carousel").carousel();
   startTimer();
 
   // Captures users input when they hit the enter key or hit the button, then runs the respective carousel of images. Later functions will likely be stored in these events also. *RH added empty to clear on selection
@@ -237,8 +235,7 @@ $(document).ready(function(){
       emptyPage();
       input = $(".dropdown").val();
       $(".display").toggleClass("display");
-      $(".animated").attr("id", "randomImagesBtn");
-      $(".visible").text("There's More!");
+      $(".visible").text("Check Out Some More Scenery");
       $(".hidden").text("See More Images of " + input);
       $("#randomImagesBtn").on("click", function() {
         $(".carousel").fadeOut(1000, function() {
@@ -255,14 +252,13 @@ $(document).ready(function(){
     if (yourobject.hasOwnProperty(key)) {
        console.log(key, yourobject[key]);
     }
- }
+  }
 
   $("#planetSearch").on("click", function() {
     emptyPage();
     input = $(".dropdown").val();
     $(".display").toggleClass("display");
-    $(".animated").attr("id", "randomImagesBtn");
-    $(".visible").text("There's More!");
+    $(".visible").text("Check Out Some More Scenery");
     $(".hidden").text("See More Images of " + input);
     $("#randomImagesBtn").on("click", function() {
       $(".carousel").fadeOut(1000, function() {
