@@ -224,6 +224,27 @@ function emptyPage() {
   };
 };
 
+
+//load planet gif carousel on page load
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.carousel2');
+  var options = {
+    numVisible: 5,
+    dist: -100,
+    shift: 0,
+    padding: 1,
+    fullWidth: false,
+    indicators: true,
+    noWrap: true,
+  }
+  var instance = M.Carousel.init(elems, options);
+  // var instance = M.Carousel.getInstance(elems);
+  // instance.set();
+  // instances.set(3); // Set to nth slide.
+  console.log(instance);
+});
+
+
 // Initializes the carousel's innate jQuery functions on document ready
 $(document).ready(function(){
   $(".carousel").carousel();
