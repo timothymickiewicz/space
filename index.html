@@ -11,23 +11,43 @@
 </head>
 <body>
     <div class="container"></div>
-        <h1>Coming Soon!</h1>
-        <div id="time"></div>
-        <div id="wrapInput">
-            <!-- Need to resize this -->
-            <select name="planets" class="ui dropdown" id="select">
-                <option value="Mercury">Mercury</option>
-                <option value="Venus">Venus</option>
-                <option value="Earth">Earth</option>
-                <option value="Mars">Mars</option>
-                <option value="Jupiter">Jupiter</option>
-                <option value="Saturn">Saturn</option>
-                <option value="Uranus">Uranus</option>
-                <option value="Neptune">Neptune</option>
-                <option value="Pluto">Pluto*</option>
-            </select>
-            <div class="button">
-                <input type ="button" value="search" id="planetSearch">
+        <!-- grid for 16 wide columns (semantic-ui) -->
+        <div class="ui grid">
+            <div class="sixteen wide column">
+                <h1>Space Exploration: Planets</h1>
+                    <div id="time"></div>
+            </div>
+            <div class="sixteen wide column">
+                <div id="wrapInput">
+                    <!--  https://semantic-ui.com/modules/dropdown.html-->
+                    <select name="planets" class="ui dropdown" id="select">
+                        <option value="Mercury">Mercury</option>
+                        <option value="Venus">Venus</option>
+                        <option value="Earth">Earth</option>
+                        <option value="Mars">Mars</option>
+                        <option value="Jupiter">Jupiter</option>
+                        <option value="Saturn">Saturn</option>
+                        <option value="Uranus">Uranus</option>
+                        <option value="Neptune">Neptune</option>
+                        <option value="Pluto">Pluto*</option>
+                    </select>
+                    <div class="button">
+                        <input type ="button" value="search" id="planetSearch" class=" btn waves-effect waves-red">
+                    </div>
+                </div>
+            </div>
+             <!-- semantic-ui three column grid for leftdata - carousel - rightdata -->
+            <div class="row">
+                <div class="three wide column" id="three">
+                    <div id="leftdata">Left Data</div>
+                </div>
+                <div class="ten wide column" id="three">
+                  <div id="carousel">Center Carousel</div>
+                  <div id = "carImage"></div>
+              </div>
+                <div class="three wide column" id="three">
+                  <div id="rightdata">Right Data</div> 
+              </div>
             </div>
         </div>
         <div class ="column">
@@ -40,23 +60,30 @@
                 </thead>
                 <tbody>
                     <tr id="moons">
-
                     </tr>
                 </tbody>
             </table>
         </div>
         <!-- Carousel from Materialize, can shorten or add more if needed -->
-        <div class="carousel">
-            <a class="carousel-item" href="#one!"><img class="planetImage"></a>
-            <a class="carousel-item" href="#two!"><img class="planetImage"></a>
-            <a class="carousel-item" href="#three!"><img class="planetImage"></a>
-            <a class="carousel-item" href="#four!"><img class="planetImage"></a>
-            <a class="carousel-item" href="#five!"><img class="planetImage"></a>
-            <a class="carousel-item" href="#six!"><img class="planetImage"></a>
-            <a class="carousel-item" href="#seven!"><img class="planetImage"></a>
-            <a class="carousel-item" href="#eight!"><img class="planetImage"></a>
-            <a class="carousel-item" href="#nine!"><img class="planetImage"></a>
-            <a class="carousel-item" href="#ten!"><img class="planetImage"></a>
+        <div id="wrapCarousel">
+            <div class="carousel">
+                <a class="carousel-item" href="#one!"><img class="planetImage"></a>
+                <a class="carousel-item" href="#two!"><img class="planetImage"></a>
+                <a class="carousel-item" href="#three!"><img class="planetImage"></a>
+                <a class="carousel-item" href="#four!"><img class="planetImage"></a>
+                <a class="carousel-item" href="#five!"><img class="planetImage"></a>
+                <a class="carousel-item" href="#six!"><img class="planetImage"></a>
+                <a class="carousel-item" href="#seven!"><img class="planetImage"></a>
+                <a class="carousel-item" href="#eight!"><img class="planetImage"></a>
+                <a class="carousel-item" href="#nine!"><img class="planetImage"></a>
+                <a class="carousel-item" href="#ten!"><img class="planetImage"></a>
+            </div>
+            <div class="display">
+                <div class="ui animated fade inverted purple button" tabindex="0">
+                    <div class="visible content"></div>
+                    <div class="hidden content"></div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

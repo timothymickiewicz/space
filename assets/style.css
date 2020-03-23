@@ -44,8 +44,11 @@ td {
     margin-top: 2vw;
     color: white;
 }
-#randomImages {
+#randomImagesBtn {
     background-color: blue;
+    border-radius: 1vw;
+    margin-bottom: 1vw;
+    width: 20%;
 }
 #wrapCarousel {
     text-align: center;
@@ -89,5 +92,6 @@ td {
 
 }
 
-
-
+.display {
+    display: none;
+}
