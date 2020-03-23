@@ -163,12 +163,16 @@ function solarSystem() {
     method: "GET"
   }).then(function(response) {
     console.log(response);
-    console.log("Planet Name " + response.englishName);
-    console.log("Diameter (km): " + response.meanRadius * 2);
-    console.log("Density (kg/m&3): " + response.density * 1000);
-    console.log("Gravity (eq.,1 bar) (m/s&2): " + response.gravity);
-    console.log("Discovered By: " + response.discoveredBy);
-    console.log("Discovery Date: " + response.discoveryDate);
+
+
+    var planetName = "Planet Name " + response.englishName;
+    var diameter = "Diameter (km): " + response.meanRadius * 2;
+    var density = "Density (kg/m&3): " + response.density * 1000;
+    var gravity = "Gravity (eq.,1 bar) (m/s&2): " + response.gravity;
+    var discoveredBy = "Discovered By: " + response.discoveredBy;
+    var discoveryDate = "Discovery Date: " + response.discoveryDate;
+    console.log(planetName,diameter,density,gravity,discoveredBy, discoveryDate);
+
     $("h2").append("Moons of " + input).attr("id", "moonsOfPlanet");
     if (!$.trim(response.moons)) {
       $("<p>").appendTo("h2").text(input + " has no moons on record.").attr("id", "noMoons");
