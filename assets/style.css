@@ -64,28 +64,10 @@ td {
     color: white;
 }
 
-#carousel {
-    text-align: center;
-    color: white;
-}
-
-#wrapInput {
-    padding-left: 30rem;
-    padding-right: 30rem; 
-}
-
 .button {
     padding-top: 1rem;
 }
 
-#carImage {
-    background-image: url(images/solarsystem2.gif);
-    width: 60%;
-    height: 300px;
-    box-shadow: 25px 25px 50px 0 white inset, -25px -25px 50px 0 white inset; 
-    border-radius: 30%;
-    margin: 0 auto;
-}
 
 .display {
     display: none;
