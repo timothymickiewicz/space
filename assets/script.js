@@ -164,13 +164,11 @@ function solarSystem() {
   }).then(function(response) {
     console.log(response);
     console.log("Planet Name " + response.englishName);
-    console.log("Moons: " + response.moons.length);
     console.log("Diameter (km): " + response.meanRadius * 2);
     console.log("Density (kg/m&3): " + response.density * 1000);
     console.log("Gravity (eq.,1 bar) (m/s&2): " + response.gravity);
     console.log("Discovered By: " + response.discoveredBy);
     console.log("Discovery Date: " + response.discoveryDate);
-    console.log(response.moons);
     $("h2").append("Moons of " + input).attr("id", "moonsOfPlanet");
     if (!$.trim(response.moons)) {
       $("<p>").appendTo("h2").text(input + " has no moons on record.").attr("id", "noMoons");
@@ -214,6 +212,16 @@ function solarSystem() {
   });
 };
 
+function emptyPage() {
+  $("#moonsOfPlanet").empty();
+  $("#moons").empty();
+  $("#noMoons").empty();
+  $("#randomImagesBtn").unbind();
+  for (var j=0; j <= 7; j++) {
+    var concatNum = j.toString();
+    $("#newRow" + concatNum).empty();
+  }
+}
 // Initializes the carousel's innate jQuery functions on document ready
 $(document).ready(function(){
   $('.carousel').carousel();
@@ -222,21 +230,19 @@ $(document).ready(function(){
   // Captures users input when they hit the enter key or hit the button, then runs the respective carousel of images. Later functions will likely be stored in these events also. *RH added empty to clear on selection
   $(document).on("keypress", function(x) {
     if(x.which == 13) {
+      emptyPage();
       input = $(".dropdown").val();
-      $("#moonsOfPlanet").empty();
-      $("#moons").empty();
-      for (var j=0; j <= 7; j++) {
-        var concatNum = j.toString();
-        $("#newRow" + concatNum).empty();
-      }
-      $("<button>").attr("id", "randomImages").appendTo("#wrapCarousel").text("View NASA images");
-      $("#randomImages").on("click", function() {
+      $(".display").toggleClass("display");
+      $(".animated").attr("id", "randomImagesBtn");
+      $(".visible").text("There's More!");
+      $(".hidden").text("See More Images of " + input);
+      $("#randomImagesBtn").on("click", function() {
         $(".carousel").fadeOut(1000, function() {
           randomImagesCarousel();
       });
         $(".carousel").fadeIn(1000);
-      });
-      planetImagesCarousel();   
+      });  
+      planetImagesCarousel();
       solarSystem();
     };
   });
@@ -248,15 +254,13 @@ $(document).ready(function(){
  }
 
   $("#planetSearch").on("click", function() {
-    $("#moonsOfPlanet").empty();
-    $("#moons").empty();
-    for (var j=0; j <= 7; j++) {
-      var concatNum = j.toString();
-      $("#newRow" + concatNum).empty();
-    };
+    emptyPage();
     input = $(".dropdown").val();
-    $("<button>").attr("id", "randomImages").appendTo("#wrapCarousel").text("View NASA images");
-    $("#randomImages").on("click", function() {
+    $(".display").toggleClass("display");
+    $(".animated").attr("id", "randomImagesBtn");
+    $(".visible").text("There's More!");
+    $(".hidden").text("See More Images of " + input);
+    $("#randomImagesBtn").on("click", function() {
       $(".carousel").fadeOut(1000, function() {
         randomImagesCarousel();
     });
