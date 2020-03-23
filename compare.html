@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Space!</title>
+</head>
+<body>
+    <div class="container"></div>
+        <h1>Compare the Planets</h1>
+         <div id="time"></div>
+         <br>
+      
+        
+        <!-- grid for 16 wide columns (semantic-ui) -->
+    <div class="ui grid">  
+        <div class="three wide column"></div> 
+            <div class="five wide column"> 
+              <select name="planets" class="ui dropdown" class="select">
+         <!--  https://semantic-ui.com/modules/dropdown.html-->             
+                    <option value="Mercury">Mercury</option>
+                    <option value="Venus">Venus</option>
+                    <option value="Earth">Earth</option>                                     <option value="Mars">Mars</option>
+                    <option value="Jupiter">Jupiter</option>
+                    <option value="Saturn">Saturn</option>
+                    <option value="Uranus">Uranus</option>
+                    <option value="Neptune">Neptune</option>
+                    <option value="Pluto">Pluto*</option>
+                </select>
+            </div>
+        
+            <div class="five wide column">
+              <select name="planets" class="ui dropdown" class="select">
+                             
+                    <option value="Mercury">Mercury</option>
+                    <option value="Venus">Venus</option>
+                    <option value="Earth">Earth</option>
+                    <option value="Mars">Mars</option>
+                    <option value="Jupiter">Jupiter</option>
+                    <option value="Saturn">Saturn</option>
+                    <option value="Uranus">Uranus</option>
+                    <option value="Neptune">Neptune</option>
+                    <option value="Pluto">Pluto*</option>
+                </select>
+            </div>
+          <div class="three wide column"></div> 
+        </div>
+
+        <div class="ui grid">  
+         
+        <div class="five wide column"></div>
+            <div class="button">
+                <input type ="button" value="search" id="planetSearch" class=" btn waves-effect waves-red">
+            </div>
+          <div class="four wide column"></div>
+             
+              <div class="button">
+                <input type ="button" value="search" id="planetSearch" class=" btn waves-effect waves-red">
+              </div>
+            </div>
+          </div>
+        
+          <div class="ui grid">  
+            <div class="three wide column"></div> 
+                <div class="five wide column"> 
+                    <h2 style="color:DodgerBlue;">Data 1</h2>
+                </div>
+                <div class="five wide column">
+                    <h2 style="color:DodgerBlue;">Data 2</h2>
+                </div>
+            <div class="three wide column"></div>
+
+
+       
+     
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+    <script src="assets/comparescript.js"></script>
+</body>
+</html>
