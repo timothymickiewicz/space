@@ -1,6 +1,4 @@
-
-
- let data = {
+let data = {
    
   "stats":[{
   
@@ -14,7 +12,6 @@
   "globalMagneticField": "Global Magnetic Field: Yes"
 },
 
-
   {
   "type": "Rocky, terrestrial",
   "positionFromTheSun": "Second planet in the solar system",
@@ -26,7 +23,6 @@
   "globalMagneticField": "Global Magnetic Field: No "
 },
  
-
   {
   "type": "Rocky, terrestrial",
   "positionFromTheSun": "Third planet in the solar system",
@@ -37,7 +33,6 @@
   "ringSystem": "Ring System: No",
   "globalMagneticField": "Global Magnetic Field: Yes"
 },
-
 
   {
   "type": "Rocky, terrestrial",
@@ -50,7 +45,6 @@
   "globalMagneticField": "Global Magnetic Field: No"
 },
 
-
   {
   "type": "Gas giant",
   "positionFromTheSun": "Fifth planet in the solar system",
@@ -61,7 +55,6 @@
   "ringSystem": "Ring System: No",
   "globalMagneticField": "Global Magnetic Field: Yes"
 },
-
 
   {
   "type": "Gas giant",
@@ -74,7 +67,6 @@
   "globalMagneticField": "Global Magnetic Field: Yes"
 },
 
-
   {
   "type": "Ice giant",
   "positionFromTheSun": "Seventh planet in the solar system",
@@ -86,7 +78,6 @@
   "globalMagneticField": "Global Magnetic Field: Yes"
 },
 
-
   {
   "type": "Ice giant",
   "positionFromTheSun": "Eighth planet in the solar system",
@@ -97,7 +88,6 @@
   "ringSystem": "Ring System: Yes",
   "globalMagneticField": "Global Magnetic Field: Yes"
 },
-
 
   {
   "type": "Rock ice",
@@ -111,8 +101,6 @@
 }]
 }
 
-
-
 var input = "";
 var countImages = 0;
 var randomImage = 0;
@@ -120,7 +108,6 @@ let planetRightData = [];
 let availableStats = [];
 var key = planetSearch;
 var planetAPI = "";
-
 
 // Adding current time to the page
 function startTimer() {
@@ -130,6 +117,17 @@ setInterval(function() {
 }, 1000);
 }
 
+//Can't figure out this code. need to take top variables, and iterate array onto page in list format based on user choice. All I'm getting is object Object
+// There is no loop in this function for it to recognize what i is
+function rightSolarData() {
+  data.stats.forEach(function(message, i) {
+    console.log('message index '+ i);
+    Object.keys(message).forEach(function(prop) {    
+      console.log(message[prop]);
+      console.log(i);
+    });
+  });
+};
 
 // Pulls the daily image from nasa. We need to figure out a way to fit this into our page's background.
 function nasaDaily() {
@@ -180,11 +178,8 @@ var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input;
   $.ajax({
   url: queryURL,
   method: "GET"
-}).then(function(response) {
-
-
+  }).then(function(response) {
   var planetName = "Planet Name: " + response.englishName;
-
   var diameter = "Diameter (km): " + response.meanRadius * 2;
   var density = "Density (kg/m&3): " + response.density * 1000;
   var gravity = "Gravity (eq.,1 bar) (m/s&2): " + response.gravity;
@@ -192,33 +187,19 @@ var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input;
   var discoveryDate = "Discovery Date: " + response.discoveryDate;
   var planetLeftData = [
     planetName,diameter,density,gravity,discoveredBy, discoveryDate];
-  
-  
+  // Writes data to the left side of the page
   function leftSolarData() {
-    for ( var i = 0; i < planetLeftData.length; i++) {
+    for (var i = 0; i < planetLeftData.length; i++) {
     var list = $("<li>");
     list.addClass("leftList");
     list.text(planetLeftData[i]);
-   //style with css using class "leftList"
+    //style with css using class "leftList"
     $("#leftdata").append(list);
-    } 
-  }
+    } ;
+  };
+
   leftSolarData();
-
-  //Can't figure out this code. need to take top variables, and iterate array onto page in list format based on user choice. All I'm getting is object Object
-  function rightSolarData() {
-    data.stats.forEach(function(message, i) {
-      console.log('message index '+ i);
-      Object.keys(message).forEach(function(prop) {    
-          
-        console.log(message[prop]);
-        console.log(i);
-      });
-  });
-      
-}
-  rightSolarData();
-
+  
   //append moons here
   $("h2").append("Moons of " + input).attr("id", "moonsOfPlanet");
   if (!$.trim(response.moons)) {
@@ -263,55 +244,53 @@ var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input;
 
 // Empties the existing content
 function emptyPage() {
-$("#leftdata").empty();
-$("#moonsOfPlanet").empty();
-$("#noMoons").empty();
-$("#randomImagesBtn").unbind();
-//ask Tim about this 
-for (var j=0; j <= 7; j++) {
-  $("#newRow" + j).remove();
+  $("#leftdata").empty();
+  $("#moonsOfPlanet").empty();
+  $("#noMoons").empty();
+  $("#randomImagesBtn").unbind();
+  for (var j=0; j <= 7; j++) {
+    $("#newRow" + j).remove();
+  };
 };
-};
-
-//load planet gif carousel on page load
-document.addEventListener('DOMContentLoaded', function() {
-var elems = document.querySelectorAll('.carousel');
-var instances = M.Carousel.init(elems)
-});
 
 //change funtion to move planet gif
 $( ".dropdown" ).change(function() {
-var carousel = document.getElementById('planetGif');
-var instance = M.Carousel.getInstance(carousel);
-var input = $(this).find(':selected').data('pic1');
-instance.set(input);
+  var carousel = document.getElementById('planetGif');
+  var instance = M.Carousel.getInstance(carousel);
+  var input = $(this).find(':selected').data('pic1');
+  instance.set(input);
 });
 
+// Rotates random images carousel
+function rotateCarousel() {
+  setInterval(function() {
+    $("#randomCarousel").carousel("next");
+  },3500);
+}
+
 // Initializes the carousel's innate jQuery functions on document ready
-$(document).ready(function(){
-$(".carousel").carousel();  
-startTimer();
-// Captures users input when they hit the enter key or hit the button, then runs the respective carousel of images. Later functions will likely be stored in these events also. *RH added empty to clear on selection
-$(document).on("keypress", function(x) {
-  if(x.which == 13) {
-    emptyPage();
-    input = $(".dropdown").val();
-    $(".display").toggleClass("display");
-    $(".visible").text("Check Out Some More Scenery");
-    $(".hidden").text("See More Images of " + input);
-    setInterval(function() {
-      $("#randomCarousel").carousel("next");
-    },3000);
-    $("#randomImagesBtn").on("click", function() {
-      $("#randomCarousel").fadeOut(1000, function() {
-        randomImagesCarousel();
-    });
-      $("#randomCarousel").fadeIn(1000);
-    });  
-    planetImagesCarousel();
-    solarSystem();
-  };
-});
+$(document).ready(function() {
+  $(".carousel").carousel();  
+  startTimer();
+  rotateCarousel();
+  $(document).on("keypress", function(x) {
+    if(x.which == 13) {
+      emptyPage();
+      input = $(".dropdown").val();
+      $(".display").toggleClass("display");
+      $(".visible").text("Check Out Some More Scenery");
+      $(".hidden").text("See More Images of " + (input.charAt(0).toUpperCase() + input.substr(1).toLowerCase()));
+      $("#randomImagesBtn").on("click", function() {
+        $("#randomCarousel").fadeOut(1000, function() {
+          randomImagesCarousel();
+      });
+        $("#randomCarousel").fadeIn(1000);
+      });  
+      planetImagesCarousel();
+      solarSystem();
+      rightSolarData();
+    };
+  });
 
 // for (var key in yourobject) {
 //   if (yourobject.hasOwnProperty(key)) {
@@ -319,22 +298,20 @@ $(document).on("keypress", function(x) {
 //   }
 // }
 
-$("#planetSearch").on("click", function() {
-  emptyPage();
-  input = $(".dropdown").val();
-  $(".display").toggleClass("display");
-  $(".visible").text("Check Out Some More Scenery");
-  $(".hidden").text("See More Images of " + input);
-  setInterval(function() {
-    $("#randomCarousel").carousel("next");
-  },3000);
-  $("#randomImagesBtn").on("click", function() {
-    $("#randomCarousel").fadeOut(1000, function() {
-      randomImagesCarousel();
+  $("#planetSearch").on("click", function() {
+    emptyPage();
+    input = $(".dropdown").val();
+    $(".display").toggleClass("display");
+    $(".visible").text("Check Out Some More Scenery");
+    $(".hidden").text("See More Images of " + (input.charAt(0).toUpperCase() + input.substr(1).toLowerCase()));
+    $("#randomImagesBtn").on("click", function() {
+      $("#randomCarousel").fadeOut(1000, function() {
+        randomImagesCarousel();
+    });
+      $("#randomCarousel").fadeIn(1000);
+    });
+    planetImagesCarousel();
+    solarSystem();
+    rightSolarData();
   });
-    $("#randomCarousel").fadeIn(1000);
-  });
-  planetImagesCarousel();
-  solarSystem();
-});
 });
