@@ -225,11 +225,14 @@ function emptyPage() {
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.carousel');
   var instances = M.Carousel.init(elems)
-  // var elem = document.querySelectorAll('carousel');
-  // var instance = M.Carousel.getInstance(elems);
-  // instance.set(3);
-  // instance.set(3); // Set to nth slide.
-  console.log(instances);
+});
+
+//change funtion to move planet gif
+$( ".dropdown" ).change(function() {
+  var carousel = document.getElementById('planetGif');
+  var instance = M.Carousel.getInstance(carousel);
+  var input = $(this).find(':selected').data('pic1');
+  instance.set(input);
 });
 
 // Initializes the carousel's innate jQuery functions on document ready
