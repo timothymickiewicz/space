@@ -221,6 +221,11 @@ function emptyPage() {
   };
 };
 
+function rotateCarousel() {
+  setInterval(function() {
+    $("#randomCarousel").carousel("next");
+  },4000);
+}
 //load planet gif carousel on page load
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.carousel');
@@ -239,6 +244,7 @@ $( ".dropdown" ).change(function() {
 $(document).ready(function(){
   $(".carousel").carousel();  
   startTimer();
+  rotateCarousel();
   // Captures users input when they hit the enter key or hit the button, then runs the respective carousel of images. Later functions will likely be stored in these events also. *RH added empty to clear on selection
   $(document).on("keypress", function(x) {
     if(x.which == 13) {
@@ -247,9 +253,6 @@ $(document).ready(function(){
       $(".display").toggleClass("display");
       $(".visible").text("Check Out Some More Scenery");
       $(".hidden").text("See More Images of " + input);
-      setInterval(function() {
-        $("#randomCarousel").carousel("next");
-      },3000);
       $("#randomImagesBtn").on("click", function() {
         $("#randomCarousel").fadeOut(1000, function() {
           randomImagesCarousel();
@@ -273,9 +276,6 @@ $(document).ready(function(){
     $(".display").toggleClass("display");
     $(".visible").text("Check Out Some More Scenery");
     $(".hidden").text("See More Images of " + input);
-    setInterval(function() {
-      $("#randomCarousel").carousel("next");
-    },3000);
     $("#randomImagesBtn").on("click", function() {
       $("#randomCarousel").fadeOut(1000, function() {
         randomImagesCarousel();
