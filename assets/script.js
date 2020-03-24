@@ -18,7 +18,7 @@
     avgTemp: "Average Temperature: 464 C",
     ringSystem: "Ring System: No",
     globalMagneticField: "Global Magnetic Field: No "
-    }
+  }
 
   var earth = {
     type: "Rocky, terrestrial",
@@ -40,7 +40,7 @@
     avgTemp: "Average Temperature: -65 C",
     ringSystem: "Ring System: No",
     globalMagneticField: "Global Magnetic Field: No"
-    }
+  }
 
   var jupiter = {
     type: "Gas giant",
@@ -51,7 +51,7 @@
     avgTemp: "Average Temperature: -110 C",
     ringSystem: "Ring System: No",
     globalMagneticField: "Global Magnetic Field: Yes"
-    }
+  }
 
   var saturn = {
     type: "Gas giant",
@@ -101,7 +101,6 @@ var countImages = 0;
 var randomImage = 0;
 var yourobject = [mercury, venus, uranus, neptune, mars, pluto, earth, saturn,jupiter];
 var key = planetSearch;
-
 
 // Adding current time to the page
 function startTimer() {
@@ -163,8 +162,6 @@ function solarSystem() {
     method: "GET"
   }).then(function(response) {
     console.log(response);
-
-
     var planetName = "Planet Name " + response.englishName;
     var diameter = "Diameter (km): " + response.meanRadius * 2;
     var density = "Density (kg/m&3): " + response.density * 1000;
@@ -224,13 +221,10 @@ function emptyPage() {
   };
 };
 
-
 //load planet gif carousel on page load
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.carousel');
   var instances = M.Carousel.init(elems)
-   
-  
 });
 
 //change funtion to move planet gif
@@ -241,16 +235,10 @@ $( ".dropdown" ).change(function() {
   instance.set(input);
 });
 
-
 // Initializes the carousel's innate jQuery functions on document ready
 $(document).ready(function(){
-  $(".carousel").carousel();
-  // setInterval(function() {
-  //   $('.carousel').carousel('next');
-  // },3000);
-  
+  $(".carousel").carousel();  
   startTimer();
-
   // Captures users input when they hit the enter key or hit the button, then runs the respective carousel of images. Later functions will likely be stored in these events also. *RH added empty to clear on selection
   $(document).on("keypress", function(x) {
     if(x.which == 13) {
@@ -259,11 +247,14 @@ $(document).ready(function(){
       $(".display").toggleClass("display");
       $(".visible").text("Check Out Some More Scenery");
       $(".hidden").text("See More Images of " + input);
+      setInterval(function() {
+        $("#randomCarousel").carousel("next");
+      },3000);
       $("#randomImagesBtn").on("click", function() {
-        $(".carousel").fadeOut(1000, function() {
+        $("#randomCarousel").fadeOut(1000, function() {
           randomImagesCarousel();
       });
-        $(".carousel").fadeIn(1000);
+        $("#randomCarousel").fadeIn(1000);
       });  
       planetImagesCarousel();
       solarSystem();
@@ -282,11 +273,14 @@ $(document).ready(function(){
     $(".display").toggleClass("display");
     $(".visible").text("Check Out Some More Scenery");
     $(".hidden").text("See More Images of " + input);
+    setInterval(function() {
+      $("#randomCarousel").carousel("next");
+    },3000);
     $("#randomImagesBtn").on("click", function() {
-      $(".carousel").fadeOut(1000, function() {
+      $("#randomCarousel").fadeOut(1000, function() {
         randomImagesCarousel();
     });
-      $(".carousel").fadeIn(1000);
+      $("#randomCarousel").fadeIn(1000);
     });
     planetImagesCarousel();
     solarSystem();
