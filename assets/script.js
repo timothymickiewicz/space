@@ -230,12 +230,16 @@ document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.carousel');
   var instances = M.Carousel.init(elems)
    
-  // var elem = document.querySelectorAll('carousel');
-  // var instance = M.Carousel.getInstance(elems);
-  // instance.set(3);
-  // instance.set(3); // Set to nth slide.
-  console.log(instances);
+  var carousel = document.getElementById('planetGif');
+  var instance = M.Carousel.getInstance(carousel);
+
+  var input = $(".dropdown").val();
+  instance.set(5);
+  
+  console.log(input);
 });
+
+
 
 
 // Initializes the carousel's innate jQuery functions on document ready
