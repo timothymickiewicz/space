@@ -16,7 +16,7 @@
 
 
   {
-  "type": "Rocky, terrestrial test",
+  "type": "Rocky, terrestrial",
   "positionFromTheSun": "Second planet in the solar system",
   "distanceFromSun": "Distance from the Sun: 108.2 10e6 km",
   "lengthOfDay": "Length of Day: 2808 hours",
