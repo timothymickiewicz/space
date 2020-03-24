@@ -99,8 +99,9 @@
 var input = "";
 var countImages = 0;
 var randomImage = 0;
-var yourobject = [mercury, venus, uranus, neptune, mars, pluto, earth, saturn,jupiter];
+var planetData = [mercury, venus, uranus, neptune, mars, pluto, earth, saturn,jupiter];
 var key = planetSearch;
+var planetAPI = "";
 
 
 // Adding current time to the page
@@ -110,6 +111,7 @@ function startTimer() {
       $("#time").text(currentTime);
   }, 1000);
 }
+
 
 // Pulls the daily image from nasa. We need to figure out a way to fit this into our page's background.
 function nasaDaily() {
@@ -165,14 +167,30 @@ function solarSystem() {
     console.log(response);
 
 
-    var planetName = "Planet Name " + response.englishName;
+    var planetName = "Planet Name: " + response.englishName;
     var diameter = "Diameter (km): " + response.meanRadius * 2;
     var density = "Density (kg/m&3): " + response.density * 1000;
     var gravity = "Gravity (eq.,1 bar) (m/s&2): " + response.gravity;
     var discoveredBy = "Discovered By: " + response.discoveredBy;
     var discoveryDate = "Discovery Date: " + response.discoveryDate;
-    console.log(planetName,diameter,density,gravity,discoveredBy, discoveryDate);
+    var planetLeftData = [
+      planetName,diameter,density,gravity,discoveredBy, discoveryDate];
+    
 
+    function leftSolarData() {
+      for ( var i = 0; i < planetLeftData.length; i++) {
+      var list = $("<li>");
+      list.addClass("leftList");
+      list.text(planetLeftData[i]);
+     //style with css using class "leftList"
+      $("#leftdata").append(list);
+      }
+      
+    }
+    leftSolarData();
+   
+
+    //append moons here
     $("h2").append("Moons of " + input).attr("id", "moonsOfPlanet");
     if (!$.trim(response.moons)) {
       $("<p>").appendTo("h2").text(input + " has no moons on record.").attr("id", "noMoons");
@@ -216,9 +234,11 @@ function solarSystem() {
 
 // Empties the existing content
 function emptyPage() {
+  $("#leftdata").empty();
   $("#moonsOfPlanet").empty();
   $("#noMoons").empty();
   $("#randomImagesBtn").unbind();
+  //ask Tim about this 
   for (var j=0; j <= 7; j++) {
     $("#newRow" + j).remove();
   };
@@ -270,11 +290,11 @@ $(document).ready(function(){
     };
   });
   
-  for (var key in yourobject) {
-    if (yourobject.hasOwnProperty(key)) {
-       console.log(key, yourobject[key]);
-    }
-  }
+  // for (var key in yourobject) {
+  //   if (yourobject.hasOwnProperty(key)) {
+  //      console.log(key, yourobject[key]);
+  //   }
+  // }
 
   $("#planetSearch").on("click", function() {
     emptyPage();
