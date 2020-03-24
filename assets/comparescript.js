@@ -124,11 +124,10 @@ function startTimer() {
     });
 }
 
-  //logic
-  $(document).ready(function() {
-
+//logic
+$(document).ready(function() {
     input = $(".dropdown").val();
-      startTimer();
-      solarSystem();
-  });
+    startTimer();
+    solarSystem();
+});
 
