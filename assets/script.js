@@ -99,7 +99,7 @@
 var input = "";
 var countImages = 0;
 var randomImage = 0;
-var planetData = [mercury, venus, uranus, neptune, mars, pluto, earth, saturn,jupiter];
+var planetRightData = [mercury, venus, uranus, neptune, mars, pluto, earth, saturn,jupiter];
 var key = planetSearch;
 var planetAPI = "";
 
@@ -148,7 +148,6 @@ function planetImagesCarousel() {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response);
     for (var i = 0; i < 10; i++) {
       countImages = response.collection.items.length;
       randomImage = Math.floor(Math.random() * countImages);
@@ -164,9 +163,7 @@ function solarSystem() {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response);
-
-
+   
     var planetName = "Planet Name: " + response.englishName;
     var diameter = "Diameter (km): " + response.meanRadius * 2;
     var density = "Density (kg/m&3): " + response.density * 1000;
@@ -176,7 +173,7 @@ function solarSystem() {
     var planetLeftData = [
       planetName,diameter,density,gravity,discoveredBy, discoveryDate];
     
-
+    
     function leftSolarData() {
       for ( var i = 0; i < planetLeftData.length; i++) {
       var list = $("<li>");
@@ -184,11 +181,24 @@ function solarSystem() {
       list.text(planetLeftData[i]);
      //style with css using class "leftList"
       $("#leftdata").append(list);
-      }
-      
+      } 
     }
     leftSolarData();
-   
+
+    //Can't figure out this code. need to take top variables, and iterate array onto page in list format based on user choice. All I'm getting is object Object
+    function rightSolarData() {
+      var input = planetRightData;
+      console.log(input); 
+      for ( var i = 0; i < input.length; i++) {
+       
+        var list = $("<li>");
+        list.addClass("rightList");
+        list.text(input[i]);
+        $("#rightdata").append(list);
+      
+    }
+  }
+    rightSolarData();
 
     //append moons here
     $("h2").append("Moons of " + input).attr("id", "moonsOfPlanet");
