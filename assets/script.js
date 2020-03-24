@@ -227,27 +227,24 @@ function emptyPage() {
 
 //load planet gif carousel on page load
 document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.carousel2');
-  var options = {
-    numVisible: 5,
-    dist: -100,
-    shift: 0,
-    padding: 1,
-    fullWidth: false,
-    indicators: true,
-    noWrap: true,
-  }
-  var instance = M.Carousel.init(elems, options);
+  var elems = document.querySelectorAll('.carousel');
+  var instances = M.Carousel.init(elems)
+   
+  // var elem = document.querySelectorAll('carousel');
   // var instance = M.Carousel.getInstance(elems);
-  // instance.set();
-  // instances.set(3); // Set to nth slide.
-  console.log(instance);
+  // instance.set(3);
+  // instance.set(3); // Set to nth slide.
+  console.log(instances);
 });
 
 
 // Initializes the carousel's innate jQuery functions on document ready
 $(document).ready(function(){
   $(".carousel").carousel();
+  // setInterval(function() {
+  //   $('.carousel').carousel('next');
+  // },3000);
+  
   startTimer();
 
   // Captures users input when they hit the enter key or hit the button, then runs the respective carousel of images. Later functions will likely be stored in these events also. *RH added empty to clear on selection
