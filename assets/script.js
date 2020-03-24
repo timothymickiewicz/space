@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
 $( ".dropdown" ).change(function() {
   var carousel = document.getElementById('planetGif');
   var instance = M.Carousel.getInstance(carousel);
-  var input = $(".dropdown").val();
+  var input = $(this).find(':selected').data('pic1');
   instance.set(input);
 });
 
