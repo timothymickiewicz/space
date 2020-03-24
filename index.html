@@ -6,6 +6,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="assets/images/favicon-16x16.png" sizes="16x16" />
     <link rel="stylesheet" href="assets/style.css">
     <title>Space!</title>
 </head>
@@ -69,7 +71,7 @@
         </div>
         <!-- Carousel from Materialize, can shorten or add more if needed -->
         <div id="wrapCarousel">
-            <div class="carousel">
+            <div class="carousel" id="randomCarousel">
                 <a class="carousel-item" href="#one!"><img class="planetImage"></a>
                 <a class="carousel-item" href="#two!"><img class="planetImage"></a>
                 <a class="carousel-item" href="#three!"><img class="planetImage"></a>
@@ -82,7 +84,7 @@
                 <a class="carousel-item" href="#ten!"><img class="planetImage"></a>
             </div>
             <div class="display">
-                <div class="ui animated fade inverted grey button" tabindex="0" id="randomImagesBtn">
+                <div class="ui animated fade inverted teal button waves-effect waves-red" tabindex="0" id="randomImagesBtn">
                     <div class="visible content"></div>
                     <div class="hidden content"></div>
                 </div>
