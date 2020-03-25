@@ -117,6 +117,32 @@ function startTimer() {
     }, 1000);
   };
 
+  function leftSolarData() {
+    var userChoice = $("#leftDropdown").find('option:selected').attr('data-index')
+    $("#leftData2").empty();
+    var type = $("<li>" + "Type: " + data.stats[userChoice].type + "</li>");
+    var positionFromTheSun = $("<li>" + data.stats[userChoice].positionFromTheSun + "</li>");
+    var lengthOfDay = ("<li>" + data.stats[userChoice].lengthOfDay + "</li>");
+    var orbitalPeriod = $("<li>" + data.stats[userChoice].orbitalPeriod + "</li>");
+    var avgTemp = $("<li>" + data.stats[userChoice].avgTemp + "</li>");
+    var ringSystem = $("<li>" + data.stats[userChoice].ringSystem + "</li>");
+    var globalMagneticField = $("<li>" + data.stats[userChoice].globalMagneticField + "</li>");
+    $("#leftData2").append(type, positionFromTheSun, lengthOfDay, orbitalPeriod, avgTemp, ringSystem, globalMagneticField);
+ }
+ 
+
+ function rightSolarData() {
+    var userChoice = $("#rightDropdown").find('option:selected').attr('data-index2')
+    $("#rightData2").empty();
+    var type = $("<li>" + "Type: " + data.stats[userChoice].type + "</li>");
+    var positionFromTheSun = $("<li>" + data.stats[userChoice].positionFromTheSun + "</li>");
+    var lengthOfDay = ("<li>" + data.stats[userChoice].lengthOfDay + "</li>");
+    var orbitalPeriod = $("<li>" + data.stats[userChoice].orbitalPeriod + "</li>");
+    var avgTemp = $("<li>" + data.stats[userChoice].avgTemp + "</li>");
+    var ringSystem = $("<li>" + data.stats[userChoice].ringSystem + "</li>");
+    var globalMagneticField = $("<li>" + data.stats[userChoice].globalMagneticField + "</li>");
+    $("#rightData2").append(type, positionFromTheSun, lengthOfDay, orbitalPeriod, avgTemp, ringSystem, globalMagneticField);
+ }
   //pulls data from the API to be appended to ul in html in li format
 function solarDataAPI() {
     var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input;
@@ -137,7 +163,7 @@ function solarDataAPI() {
         function solarDataLeft() {
             for (var i = 0; i < planetData.length; i++) {
                 var list = $("<li>");
-                list.addClass("data");
+                list.addClass("textFormat");
                 list.text(planetData[i]);
                 //style with css using class "leftList"
                 $("#leftData").append(list);
@@ -145,6 +171,7 @@ function solarDataAPI() {
         };
         solarDataLeft();
     })
+
     var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input2;
     $.ajax({
         url: queryURL,
@@ -163,7 +190,7 @@ function solarDataAPI() {
         function solarDataRight() {
             for (var i = 0; i < planetData.length; i++) {
                 var list = $("<li>");
-                list.addClass("data");
+                list.addClass("textFormat");
                 list.text(planetData[i]);
                 //style with css using class "leftList"
                 $("#rightData").append(list);
@@ -189,6 +216,8 @@ $(document).ready(function() {
             input = $("#leftDropdown").val();
             input2 = $("#rightDropdown").val();
             solarDataAPI();
+            rightSolarData();
+            leftSolarData();
         };
     });
     $("#planetSearchLeft").on("click", function() {
@@ -197,5 +226,7 @@ $(document).ready(function() {
         input2 = $("#rightDropdown").val();
         $(".display").toggleClass("display");    
         solarDataAPI();
-    });
+        rightSolarData();
+        leftSolarData();
+        });
 })
