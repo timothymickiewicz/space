@@ -102,11 +102,8 @@ let data = {
   }]
   }
 
-
-
 var input = "";
 var input2 = "";
-
 
 //functions
 //start the time 
@@ -115,35 +112,36 @@ function startTimer() {
         var currentTime = moment().add(1, "s").format("MMMM Do YYYY, h:mm:ss a");
         $("#time").text(currentTime);
     }, 1000);
-  };
+};
 
-  function leftSolarData() {
-    var userChoice = $("#leftDropdown").find('option:selected').attr('data-index')
-    $("#leftData2").empty();
-    var type = $("<li>" + "Type: " + data.stats[userChoice].type + "</li>");
-    var positionFromTheSun = $("<li>" + data.stats[userChoice].positionFromTheSun + "</li>");
-    var lengthOfDay = ("<li>" + data.stats[userChoice].lengthOfDay + "</li>");
-    var orbitalPeriod = $("<li>" + data.stats[userChoice].orbitalPeriod + "</li>");
-    var avgTemp = $("<li>" + data.stats[userChoice].avgTemp + "</li>");
-    var ringSystem = $("<li>" + data.stats[userChoice].ringSystem + "</li>");
-    var globalMagneticField = $("<li>" + data.stats[userChoice].globalMagneticField + "</li>");
-    $("#leftData2").append(type, positionFromTheSun, lengthOfDay, orbitalPeriod, avgTemp, ringSystem, globalMagneticField);
- }
- 
+function leftSolarData() {
+  var userChoice = $("#leftDropdown").find('option:selected').attr('data-index')
+  $("#leftData2").empty();
+  var type = $("<li>" + "Type: " + data.stats[userChoice].type + "</li>");
+  var positionFromTheSun = $("<li>" + data.stats[userChoice].positionFromTheSun + "</li>");
+  var lengthOfDay = ("<li>" + data.stats[userChoice].lengthOfDay + "</li>");
+  var orbitalPeriod = $("<li>" + data.stats[userChoice].orbitalPeriod + "</li>");
+  var avgTemp = $("<li>" + data.stats[userChoice].avgTemp + "</li>");
+  var ringSystem = $("<li>" + data.stats[userChoice].ringSystem + "</li>");
+  var globalMagneticField = $("<li>" + data.stats[userChoice].globalMagneticField + "</li>");
+  $("#leftData2").append(type, positionFromTheSun, lengthOfDay, orbitalPeriod, avgTemp, ringSystem, globalMagneticField);
+}
 
- function rightSolarData() {
-    var userChoice = $("#rightDropdown").find('option:selected').attr('data-index2')
-    $("#rightData2").empty();
-    var type = $("<li>" + "Type: " + data.stats[userChoice].type + "</li>");
-    var positionFromTheSun = $("<li>" + data.stats[userChoice].positionFromTheSun + "</li>");
-    var lengthOfDay = ("<li>" + data.stats[userChoice].lengthOfDay + "</li>");
-    var orbitalPeriod = $("<li>" + data.stats[userChoice].orbitalPeriod + "</li>");
-    var avgTemp = $("<li>" + data.stats[userChoice].avgTemp + "</li>");
-    var ringSystem = $("<li>" + data.stats[userChoice].ringSystem + "</li>");
-    var globalMagneticField = $("<li>" + data.stats[userChoice].globalMagneticField + "</li>");
-    $("#rightData2").append(type, positionFromTheSun, lengthOfDay, orbitalPeriod, avgTemp, ringSystem, globalMagneticField);
- }
-  //pulls data from the API to be appended to ul in html in li format
+
+function rightSolarData() {
+  var userChoice = $("#rightDropdown").find('option:selected').attr('data-index2')
+  $("#rightData2").empty();
+  var type = $("<li>" + "Type: " + data.stats[userChoice].type + "</li>");
+  var positionFromTheSun = $("<li>" + data.stats[userChoice].positionFromTheSun + "</li>");
+  var lengthOfDay = ("<li>" + data.stats[userChoice].lengthOfDay + "</li>");
+  var orbitalPeriod = $("<li>" + data.stats[userChoice].orbitalPeriod + "</li>");
+  var avgTemp = $("<li>" + data.stats[userChoice].avgTemp + "</li>");
+  var ringSystem = $("<li>" + data.stats[userChoice].ringSystem + "</li>");
+  var globalMagneticField = $("<li>" + data.stats[userChoice].globalMagneticField + "</li>");
+  $("#rightData2").append(type, positionFromTheSun, lengthOfDay, orbitalPeriod, avgTemp, ringSystem, globalMagneticField);
+}
+
+//pulls data from the API to be appended to ul in html in li format
 function solarDataAPI() {
     var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input;
     $.ajax({
@@ -204,8 +202,6 @@ function emptyData() {
     $('#rightData').empty();
     $('#leftData').empty();
 };
-
-
 
 //logic
 $(document).ready(function() {
