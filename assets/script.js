@@ -131,17 +131,17 @@ function startTimer() {
 //   });
 // };
 
-// Pulls the daily image from nasa. We need to figure out a way to fit this into our page's background.
+// Pulls the daily image from nasa and sets it to the pages background
 function nasaDaily() {
 var queryURL = "https://api.nasa.gov/planetary/apod?api_key=Yfd3EoVaBZUUjUbAFFCMtvK2qtoSIxWDPUJQzjdP";
   $.ajax({
   url: queryURL,
   method: "GET"
-}).then(function(response) {
-  console.log(response);
-  console.log(response.hdurl);
-});
-}
+  }).then(function(response) {
+    var imageUrl = response.url;
+    $("body").css("background-image", "url(" + imageUrl + ")");;
+  });
+};
 
 // A carousel randomizer with images of the selected planet
 function randomImagesCarousel() {
@@ -157,9 +157,9 @@ function randomImagesCarousel() {
       $(".planetImage:eq(" + i + ")").attr("src", response.collection.items[randomImage].links[0].href);
     };
   });
-}
+};
 
-// Creates a carousel of random planet images from the NASA planet pics API, will likely hard-code the Earth and Mars images with an if/else if statement because those two planet's pics kind of suck in this API (pics of rovers and random humans?)
+// Creates a carousel of random planet images from the NASA planet pics API
 function planetImagesCarousel() {
   var queryURL = "https://images-api.nasa.gov/search?q="+ input;
   $.ajax({
@@ -203,9 +203,9 @@ function solarSystem() {
   leftSolarData();
   
   //append moons here
-  $("h2").append("Moons of " + input).attr("id", "moonsOfPlanet");
+  $("h2").append("Moons of " + (input.charAt(0).toUpperCase() + input.substr(1).toLowerCase())).attr("id", "moonsOfPlanet");
   if (!$.trim(response.moons)) {
-    $("<p>").appendTo("h2").text(input + " has no moons on record.").attr("id", "noMoons");
+    $("<p>").appendTo("h2").text((input.charAt(0).toUpperCase() + input.substr(1).toLowerCase()) + " has no moons on record.").attr("id", "noMoons");
   }
   else {
     if (response.moons.length) {
@@ -270,12 +270,14 @@ function rotateCarousel() {
   },3500);
 }
 
-// Initializes the carousel's innate jQuery functions on document ready
+// Initializes the carousel's innate jQuery functions on document ready, sets background image, starts timer, rotates carousel
 $(document).ready(function() {
+  nasaDaily();
   $(".carousel").carousel();  
   startTimer();
   rotateCarousel();
   $(document).on("keypress", function(x) {
+    event.preventDefault();
     if(x.which == 13) {
       emptyPage();
       input = $(".dropdown").val();
@@ -301,6 +303,7 @@ $(document).ready(function() {
 // }
 
   $("#planetSearch").on("click", function() {
+    event.preventDefault();
     emptyPage();
     input = $(".dropdown").val();
     $(".display").toggleClass("display");
