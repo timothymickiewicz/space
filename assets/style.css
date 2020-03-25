@@ -1,3 +1,5 @@
+
+
 body {
     background: url(images/space.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -21,7 +23,7 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    border-radius: 50%;
+    border-radius: 80%;
 }
 .button {
     text-align: center;
@@ -33,11 +35,11 @@ h1 {
 
 /* Styling for the table */
 td {
-    color: white;
+    color: yellow;
 }
 #moonsOfPlanet {
     text-align: center;
-    color: white;
+    color: yellow;
 }
 #noMoons {
     text-align: center;
@@ -48,7 +50,7 @@ td {
     background-color: blue;
     border-radius: 1vw;
     margin-bottom: 1vw;
-    width: 20%;
+    display: inline-block;
 }
 #wrapCarousel {
     text-align: center;
@@ -57,41 +59,65 @@ td {
 #leftdata {
     text-align: center;
     color: white;
-    
 }
 
 #rightdata {
     text-align: center;
     color: white;
+}
+
+#planetGif {
+    box-shadow: 0 0 40px 3px white inset;
+    border-radius: 50%;
     
 }
 
-#carousel {
-    text-align: center;
-    color: white;
-    
-}
-
-#wrapInput {
-    padding-left: 30rem;
-    padding-right: 30rem;
-    
+img {
+    border-radius: 100%;
 }
 
 .button {
     padding-top: 1rem;
 }
 
-#carImage {
-    background-image: url(images/solarsystem2.gif);
-    width: 60%;
-    height: 300px;
-    box-shadow: 25px 25px 50px 0 white inset, -25px -25px 50px 0 white inset; 
-    border-radius: 30%;
-    margin: 0 auto;
-
-}
-
 .display {
     display: none;
+}
+
+td {
+    width: 1%;
+    white-space: nowrap;
+    border: solid black 0.1vw !important;
+    padding: 0.2vw !important;
+}
+
+.moonChart {
+    background: url(https://planetary.s3.amazonaws.com/assets/images/3-moon/2017/20171030_AS11-44-6665HR_contrast.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 767px) {
+    .ui.table:not(.unstackable) td:first-child {
+        font-weight: normal !important;
+    }
+    .ui.table:not(.unstackable) tbody, .ui.table:not(.unstackable) tr {
+        width: 49% !important;
+        display: inline-block !important;
+        margin-left: 0.25vw;
+    }
+    .ui.table:not(.unstackable) tr > td {
+        padding: 0vw !important;
+    }
+    .ui.table:not(.unstackable) tr {
+        margin: 0vw !important;
+        padding: 0vw !important;
+    } 
+    .moonChart {
+        width: 100%;
+        text-align: center;
+    }
+    #wrapCarousel {
+        width: 100%;
+        text-align: center;
+    }
 }
