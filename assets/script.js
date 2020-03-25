@@ -110,6 +110,7 @@ var randomImage = 0;
 let planetRightData = [];
 var key = planetSearch;
 var planetAPI = "";
+var imagesArray = [];
 
 // Adding current time to the page
 function startTimer() {
@@ -152,11 +153,15 @@ function randomImagesCarousel() {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response);
-    for (var i = 0; i < 10; i++) {
-      countImages = response.collection.items.length;
-      randomImage = Math.floor(Math.random() * countImages);
-      $(".planetImage:eq(" + i + ")").attr("src", response.collection.items[randomImage].links[0].href);
+    for (var i=0; i < response.collection.items.length; i++) {
+      if (response.collection.items[i].data[0].media_type == "image") {
+        imagesArray.push(response.collection.items[i].href);
+      };
+    };
+    for (var j = 0; j < 10; j++) {
+      randomImage = Math.floor(Math.random() * imagesArray.length);
+      console.log(randomImage);
+      $(".planetImage:eq(" + j + ")").attr("src", response.collection.items[randomImage].links[0].href);
     };
   });
 };
@@ -168,10 +173,15 @@ function planetImagesCarousel() {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    for (var i = 0; i < 10; i++) {
-      countImages = response.collection.items.length;
-      randomImage = Math.floor(Math.random() * countImages);
-      $(".planetImage:eq(" + i + ")").attr("src", response.collection.items[randomImage].links[0].href);
+    for (var i=0; i < response.collection.items.length; i++) {
+      if (response.collection.items[i].data[0].media_type == "image") {
+        imagesArray.push(response.collection.items[i].href);
+      };
+    };
+    for (var j = 0; j < 10; j++) {
+      randomImage = Math.floor(Math.random() * imagesArray.length);
+      console.log(randomImage);
+      $(".planetImage:eq(" + j + ")").attr("src", response.collection.items[randomImage].links[0].href);
     };
   });
 };

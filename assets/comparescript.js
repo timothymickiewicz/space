@@ -102,11 +102,8 @@ let data = {
   }]
   }
 
-
-
 var input = "";
 var input2 = "";
-
 
 //functions
 //start the time 
@@ -115,9 +112,9 @@ function startTimer() {
         var currentTime = moment().add(1, "s").format("MMMM Do YYYY, h:mm:ss a");
         $("#time").text(currentTime);
     }, 1000);
-  };
+};
 
-  //pulls data from the API to be appended to ul in html in li format
+//pulls data from the API to be appended to ul in html in li format
 function solarDataAPI() {
     var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input;
     $.ajax({
@@ -177,8 +174,6 @@ function emptyData() {
     $('#rightData').empty();
     $('#leftData').empty();
 };
-
-
 
 //logic
 $(document).ready(function() {
