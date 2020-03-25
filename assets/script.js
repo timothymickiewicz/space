@@ -111,23 +111,25 @@ var planetAPI = "";
 
 // Adding current time to the page
 function startTimer() {
-setInterval(function() {
-    var currentTime = moment().add(1, "s").format("MMMM Do YYYY, h:mm:ss a");
-    $("#time").text(currentTime);
-}, 1000);
+  setInterval(function() {
+      var currentTime = moment().add(1, "s").format("MMMM Do YYYY, h:mm:ss a");
+      $("#time").text(currentTime);
+  }, 1000);
 }
 
 //Can't figure out this code. need to take top variables, and iterate array onto page in list format based on user choice. All I'm getting is object Object
 // There is no loop in this function for it to recognize what i is
-function rightSolarData() {
-  data.stats.forEach(function(message, i) {
-    console.log('message index '+ i);
-    Object.keys(message).forEach(function(prop) {    
-      console.log(message[prop]);
-      console.log(i);
-    });
-  });
-};
+// function rightSolarData() {
+//   data.stats.forEach(function(message, i) {
+//     var i = $(".dropdown").find(':selected').data('index');
+//     console.log('message index '+ i);
+//     Object.keys(message).forEach(function(prop) {   
+//       var i = $(".dropdown").find(':selected').data('index'); 
+//       console.log(message[prop]);
+//       console.log(i);
+//     });
+//   });
+// };
 
 // Pulls the daily image from nasa. We need to figure out a way to fit this into our page's background.
 function nasaDaily() {
@@ -143,38 +145,38 @@ var queryURL = "https://api.nasa.gov/planetary/apod?api_key=Yfd3EoVaBZUUjUbAFFCM
 
 // A carousel randomizer with images of the selected planet
 function randomImagesCarousel() {
-var queryURL = "https://images-api.nasa.gov/search?q="+ input;
-$.ajax({
-  url: queryURL,
-  method: "GET"
-}).then(function(response) {
-  console.log(response);
-  for (var i = 0; i < 10; i++) {
-    countImages = response.collection.items.length;
-    randomImage = Math.floor(Math.random() * countImages);
-    $(".planetImage:eq(" + i + ")").attr("src", response.collection.items[randomImage].links[0].href);
-  };
-});
+  var queryURL = "https://images-api.nasa.gov/search?q="+ input;
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    console.log(response);
+    for (var i = 0; i < 10; i++) {
+      countImages = response.collection.items.length;
+      randomImage = Math.floor(Math.random() * countImages);
+      $(".planetImage:eq(" + i + ")").attr("src", response.collection.items[randomImage].links[0].href);
+    };
+  });
 }
 
 // Creates a carousel of random planet images from the NASA planet pics API, will likely hard-code the Earth and Mars images with an if/else if statement because those two planet's pics kind of suck in this API (pics of rovers and random humans?)
 function planetImagesCarousel() {
-var queryURL = "https://images-api.nasa.gov/search?q="+ input;
-$.ajax({
-  url: queryURL,
-  method: "GET"
-}).then(function(response) {
-  for (var i = 0; i < 10; i++) {
-    countImages = response.collection.items.length;
-    randomImage = Math.floor(Math.random() * countImages);
-    $(".planetImage:eq(" + i + ")").attr("src", response.collection.items[randomImage].links[0].href);
-  };
-});
+  var queryURL = "https://images-api.nasa.gov/search?q="+ input;
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    for (var i = 0; i < 10; i++) {
+      countImages = response.collection.items.length;
+      randomImage = Math.floor(Math.random() * countImages);
+      $(".planetImage:eq(" + i + ")").attr("src", response.collection.items[randomImage].links[0].href);
+    };
+  });
 };
 
 // Pulls a planet's information
 function solarSystem() {
-var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input;
+  var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input;
   $.ajax({
   url: queryURL,
   method: "GET"
