@@ -24,10 +24,12 @@ h1 {
     width: 50%;
     border-radius: 80%;
 }
+
 .button {
     text-align: center;
     padding-bottom: 2rem;
 }
+
 .planetImage {
     border-radius: 1vw;
 }
@@ -36,21 +38,25 @@ h1 {
 td {
     color: yellow;
 }
+
 #moonsOfPlanet {
     text-align: center;
     color: yellow;
 }
+
 #noMoons {
     text-align: center;
     margin-top: 2vw;
     color: white;
 }
+
 #randomImagesBtn {
     background-color: blue;
     border-radius: 1vw;
     margin-bottom: 1vw;
     display: inline-block;
 }
+
 #wrapCarousel {
     text-align: center;
 }

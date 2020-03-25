@@ -105,11 +105,8 @@ let data = {
 
 //variables for page 
 var input = "";
-var countImages = 0;
 var randomImage = 0;
 let planetRightData = [];
-var key = planetSearch;
-var planetAPI = "";
 var imagesArray = [];
 
 // Adding current time to the page
@@ -132,11 +129,11 @@ function rightSolarData() {
     var ringSystem = $("<li>" + data.stats[userChoice].ringSystem + "</li>");
     var globalMagneticField = $("<li>" + data.stats[userChoice].globalMagneticField + "</li>");
     $("#rightdata").append(type, positionFromTheSun, lengthOfDay, orbitalPeriod, avgTemp, ringSystem, globalMagneticField);
- }
+}
 
 // Pulls the daily image from nasa and sets it to the page's background
 function nasaDaily() {
-var queryURL = "https://api.nasa.gov/planetary/apod?api_key=Yfd3EoVaBZUUjUbAFFCMtvK2qtoSIxWDPUJQzjdP";
+  var queryURL = "https://api.nasa.gov/planetary/apod?api_key=Yfd3EoVaBZUUjUbAFFCMtvK2qtoSIxWDPUJQzjdP";
   $.ajax({
   url: queryURL,
   method: "GET"
@@ -148,19 +145,22 @@ var queryURL = "https://api.nasa.gov/planetary/apod?api_key=Yfd3EoVaBZUUjUbAFFCM
 
 // A carousel randomizer with images of the selected planet
 function randomImagesCarousel() {
+  imagesArray = [];
   var queryURL = "https://images-api.nasa.gov/search?q="+ input;
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
+    // Restricts the imageArray to only media_types of imagery and not still shots of videos, creates the imageArray pool of images
     for (var i=0; i < response.collection.items.length; i++) {
       if (response.collection.items[i].data[0].media_type == "image") {
         imagesArray.push(response.collection.items[i].href);
       };
     };
+    // Selects a random image from the NASA images API, removes it from the pool of images in order to prevent duplicates, and puts it onto the carousel
     for (var j = 0; j < 10; j++) {
       randomImage = Math.floor(Math.random() * imagesArray.length);
-      console.log(randomImage);
+      imagesArray.splice(imagesArray[randomImage], 1); i--; // i-- so that it doesn't skip the next image since the index will be set back by 1
       $(".planetImage:eq(" + j + ")").attr("src", response.collection.items[randomImage].links[0].href);
     };
   });
@@ -168,19 +168,22 @@ function randomImagesCarousel() {
 
 // Creates a carousel of random planet images from the NASA planet pics API
 function planetImagesCarousel() {
+  imagesArray = [];
   var queryURL = "https://images-api.nasa.gov/search?q="+ input;
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
+    // Restricts the imageArray to only media_types of imagery and not still shots of videos, creates the imageArray pool of images
     for (var i=0; i < response.collection.items.length; i++) {
       if (response.collection.items[i].data[0].media_type == "image") {
         imagesArray.push(response.collection.items[i].href);
       };
     };
+    // Selects a random image from the NASA images API, removes it from the pool of images in order to prevent duplicates, and puts it onto the carousel
     for (var j = 0; j < 10; j++) {
       randomImage = Math.floor(Math.random() * imagesArray.length);
-      console.log(randomImage);
+      imagesArray.splice(imagesArray[randomImage], 1); i--; // i-- so that it doesn't skip the next image since the index will be set back by 1
       $(".planetImage:eq(" + j + ")").attr("src", response.collection.items[randomImage].links[0].href);
     };
   });
@@ -212,12 +215,9 @@ function solarSystem() {
     $("#leftdata").append(list);
     };
   };
-
   leftSolarData();
-  
-  
-  
-  //append moons list here
+
+  // Append moons list here
   $("h2").append("Moons of " + (input.charAt(0).toUpperCase() + input.substr(1).toLowerCase())).attr("id", "moonsOfPlanet");
   if (!$.trim(response.moons)) {
     $("<p>").appendTo("h2").text((input.charAt(0).toUpperCase() + input.substr(1).toLowerCase()) + " has no moons on record.").attr("id", "noMoons");
@@ -270,7 +270,7 @@ function emptyPage() {
   };
 };
 
-//change function to move planet gif
+// Change function to move planet gif on selection
 $( ".dropdown" ).change(function() {
   var carousel = document.getElementById('planetGif');
   var instance = M.Carousel.getInstance(carousel);
