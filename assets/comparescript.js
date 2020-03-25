@@ -112,10 +112,11 @@ function startTimer() {
   //pulls data from the API to be appended to ul in html in li format
   function solarDataAPI() {
     var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input;
-      $.ajax({
-      url: queryURL,
-      method: "GET"
+    $.ajax({
+    url: queryURL,
+    method: "GET"
     }).then(function(response) {
+
         console.log(response);
       var planetName = "Planet Name: " + response.englishName;
       var diameter = "Diameter (km): " + response.meanRadius * 2;
@@ -149,7 +150,7 @@ function startTimer() {
         // } ;
       };
        
-      
+     
 
 //logic
 $(document).ready(function() {
