@@ -10,6 +10,7 @@ h1 {
     text-align: center;
     color: white;
 }
+
 #time {
     text-align: center;
     color: white;
@@ -60,6 +61,11 @@ td {
 }
 
 #rightdata {
+    text-align: center;
+    color: white;
+}
+
+.data {
     text-align: center;
     color: white;
 }
