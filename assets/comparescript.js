@@ -132,34 +132,36 @@ function startTimer() {
  }
 
   //pulls data from the API to be appended to ul in html in li format
-  function solarDataAPI() {
+function solarDataAPI() {
     var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input;
-      $.ajax({
+    $.ajax({
       url: queryURL,
       method: "GET"
+    url: queryURL,
+    method: "GET"
     }).then(function(response) {
         console.log(response);
-      var planetName = "Planet Name: " + response.englishName;
-      var diameter = "Diameter (km): " + response.meanRadius * 2;
-      var density = "Density (kg/m&3): " + response.density * 1000;
-      var gravity = "Gravity (eq.,1 bar) (m/s&2): " + response.gravity;
-      var discoveredBy = "Discovered By: " + response.discoveredBy;
-      var discoveryDate = "Discovery Date: " + response.discoveryDate;
-      var planetData = [
-        planetName,diameter,density,gravity,discoveredBy, discoveryDate];
-      // Writes data to the left side of the page
-      function solarData() {
-        for (var i = 0; i < planetData.length; i++) {
-        var list = $("<li>");
-        list.addClass("leftData");
-        list.text(planetData[i]);
-        //style with css using class "leftList"
-        $("#leftData").append(list);
-
-        } ;
-      };
-      solarData(); 
+        var planetName = "Planet Name: " + response.englishName;
+        var diameter = "Diameter (km): " + response.meanRadius * 2;
+        var density = "Density (kg/m&3): " + response.density * 1000;
+        var gravity = "Gravity (eq.,1 bar) (m/s&2): " + response.gravity;
+        var discoveredBy = "Discovered By: " + response.discoveredBy;
+        var discoveryDate = "Discovery Date: " + response.discoveryDate;
+        var planetData = [
+            planetName,diameter,density,gravity,discoveredBy, discoveryDate];
+        // Writes data to the left side of the page
+        function solarDataLeft() {
+            for (var i = 0; i < planetData.length; i++) {
+                var list = $("<li>");
+                list.addClass("data");
+                list.text(planetData[i]);
+                //style with css using class "leftList"
+                $("#leftData").append(list);
+            } ;
+        };
+        solarDataLeft();
     })
+
 
       
         // for (var i = 0; i < planetData.length; i++) {
@@ -186,14 +188,42 @@ $(document).ready(function() {
 //logic
 
 
+    var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input2;
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+        console.log(response);
+        var planetName = "Planet Name: " + response.englishName;
+        var diameter = "Diameter (km): " + response.meanRadius * 2;
+        var density = "Density (kg/m&3): " + response.density * 1000;
+        var gravity = "Gravity (eq.,1 bar) (m/s&2): " + response.gravity;
+        var discoveredBy = "Discovered By: " + response.discoveredBy;
+        var discoveryDate = "Discovery Date: " + response.discoveryDate;
+        var planetData = [
+            planetName,diameter,density,gravity,discoveredBy, discoveryDate];
+        // Writes data to the left side of the page
+        function solarDataRight() {
+            for (var i = 0; i < planetData.length; i++) {
+                var list = $("<li>");
+                list.addClass("data");
+                list.text(planetData[i]);
+                //style with css using class "leftList"
+                $("#rightData").append(list);
+            };
+        };
+        solarDataRight();
+    });
+};
 
 
+
+//logic
 $(document).ready(function() {
     input = $("#leftDropdown").val();
     startTimer();
-    input = $("#rightDropdown").val();
+    input2 = $("#rightDropdown").val();
     startTimer();
-
     $(document).on("keypress", function(x) {
         startTimer();
         if(x.which == 13) {
@@ -201,10 +231,9 @@ $(document).ready(function() {
           input = $("#leftDropdown").val();
           //input = $("#rightDropdown").val();
           solarDataAPI();
-          solarData();
+        //   solarData();
         };
     })
-
     $("#planetSearchLeft").on("click", function() {
         emptyPage();
         input = $("#leftDropdown").val();
