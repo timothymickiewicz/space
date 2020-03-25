@@ -131,7 +131,21 @@ function startTimer() {
 //   });
 // };
 
-// Pulls the daily image from nasa and sets it to the pages background
+
+function rightSolarData() {
+    var userChoice = $("#select").find('option:selected').attr('data-index')
+    $("#rightdata").empty();
+    var type = $("<li>" + "Type: " + data.stats[userChoice].type + "</li>");
+    var positionFromTheSun = $("<li>" + data.stats[userChoice].positionFromTheSun + "</li>");
+    var lengthOfDay = ("<li>" + data.stats[userChoice].lengthOfDay + "</li>");
+    var orbitalPeriod = $("<li>" + data.stats[userChoice].orbitalPeriod + "</li>");
+    var avgTemp = $("<li>" + data.stats[userChoice].avgTemp + "</li>");
+    var ringSystem = $("<li>" + data.stats[userChoice].ringSystem + "</li>");
+    var globalMagneticField = $("<li>" + data.stats[userChoice].globalMagneticField + "</li>");
+    $("#rightdata").append(type, positionFromTheSun, lengthOfDay, orbitalPeriod, avgTemp, ringSystem, globalMagneticField);
+ }
+
+// Pulls the daily image from nasa and sets it to the page's background
 function nasaDaily() {
 var queryURL = "https://api.nasa.gov/planetary/apod?api_key=Yfd3EoVaBZUUjUbAFFCMtvK2qtoSIxWDPUJQzjdP";
   $.ajax({
