@@ -7,7 +7,7 @@ let data = {
     "distanceFromSun": "Distance from the Sun: 57.9 10e6 km",
     "lengthOfDay": "Length of Day: 4222.6 hours",
     "orbitalPeriod": "Orbital Period (length of year): 88 days",
-    "avgTemp": "Average Temperature: 167 C",
+    "avgTemp": "Average Temperature: 332.6*F / 167*C",
     "ringSystem": "Ring System: No",
     "globalMagneticField": "Global Magnetic Field: Yes"
   },
@@ -18,7 +18,7 @@ let data = {
     "distanceFromSun": "Distance from the Sun: 108.2 10e6 km",
     "lengthOfDay": "Length of Day: 2808 hours",
     "orbitalPeriod": "Orbital Period (length of year): 224.7 days",
-    "avgTemp": "Average Temperature: 464 C",
+    "avgTemp": "Average Temperature: 867.2*F / 464*C",
     "ringSystem": "Ring System: No",
     "globalMagneticField": "Global Magnetic Field: No "
   },
@@ -29,7 +29,7 @@ let data = {
     "distanceFromSun": "Distance from the Sun: 150 10e6 km",
     "lengthOfDay": "Length of Day: 24 hours",
     "orbitalPeriod": "Orbital Period (length of year): 365.2 days",
-    "avgTemp": "Average Temperature: 15 C",
+    "avgTemp": "Average Temperature: 59*F / 15*C",
     "ringSystem": "Ring System: No",
     "globalMagneticField": "Global Magnetic Field: Yes"
   },
@@ -40,7 +40,7 @@ let data = {
     "distanceFromSun": "Distance from the Sun: 227 10e6 km",
     "lengthOfDay": "Length of Day: 24.7 hours",
     "orbitalPeriod": "Orbital Period (length of year): 687 days",
-    "avgTemp": "Average Temperature: -65 C",
+    "avgTemp": "Average Temperature: -85*F / -65*C",
     "ringSystem": "Ring System: No",
     "globalMagneticField": "Global Magnetic Field: No"
   },
@@ -51,7 +51,7 @@ let data = {
     "distanceFromSun": "Distance from the Sun: 778.6 10e6 km",
     "lengthOfDay": "Length of Day: 9.9 hours",
     "orbitalPeriod": "Orbital Period (length of year): 4331 days",
-    "avgTemp": "Average Temperature: -110 C",
+    "avgTemp": "Average Temperature: -166*F / -110*C",
     "ringSystem": "Ring System: No",
     "globalMagneticField": "Global Magnetic Field: Yes"
   },
@@ -62,7 +62,7 @@ let data = {
     "distanceFromSun": "Distance from the Sun: 1433 10e6 km",
     "lengthOfDay": "Length of Day: 10.7 hours",
     "orbitalPeriod": "Orbital Period (length of year): 10,747 days",
-    "avgTemp": "Average Temperature: -140 C",
+    "avgTemp": "Average Temperature: -220*F / -140*C",
     "ringSystem": "Ring System: Yes",
     "globalMagneticField": "Global Magnetic Field: Yes"
   },
@@ -73,7 +73,7 @@ let data = {
     "distanceFromSun": "Distance from the Sun: 2872.5 10e6 km",
     "lengthOfDay": "Length of Day: 17.2 hours",
     "orbitalPeriod": "Orbital Period (length of year): 30,589 days",
-    "avgTemp": "Average Temperature: -195 C",
+    "avgTemp": "Average Temperature: -319*F / -195*C",
     "ringSystem": "Ring System: Yes",
     "globalMagneticField": "Global Magnetic Field: Yes"
   },
@@ -84,7 +84,7 @@ let data = {
     "distanceFromSun": "Distance from the Sun: 4495.1 10e6 km",
     "lengthOfDay": "Length of Day: 16.1 hours",
     "orbitalPeriod": "Orbital Period (length of year): 59,800 days",
-    "avgTemp": "Average Temperature: -200 C",
+    "avgTemp": "Average Temperature: -328*F / -200*C",
     "ringSystem": "Ring System: Yes",
     "globalMagneticField": "Global Magnetic Field: Yes"
   },
@@ -95,7 +95,7 @@ let data = {
     "distanceFromSun": "Distance from the Sun: 5906.4 10e6 km",
     "lengthOfDay": "Length of Day: 153.3 hours",
     "orbitalPeriod": "Orbital Period (length of year): 30,589 days",
-    "avgTemp": "Average Temperature: -225 C",
+    "avgTemp": "Average Temperature: -373*F / -225*C",
     "ringSystem": "Ring System: No",
     "globalMagneticField": "Global Magnetic Field: Unknown"
   }]
@@ -147,7 +147,7 @@ function solarDataAPI() {
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-        console.log(response);
+        
         var planetName = "Planet Name: " + response.englishName;
         var diameter = "Diameter (km): " + response.meanRadius * 2;
         var density = "Density (kg/m&3): " + response.density * 1000;
@@ -184,7 +184,7 @@ function solarDataAPI() {
         url: queryURL,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        
         var planetName = "Planet Name: " + response.englishName;
         var diameter = "Diameter (km): " + response.meanRadius * 2;
         var density = "Density (kg/m&3): " + response.density * 1000;

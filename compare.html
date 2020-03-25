@@ -15,13 +15,12 @@
     <div class="container"></div>
         <h1>Compare the Planets</h1>
          <div id="time"></div>
-         <br>
-      
+         <br>      
         
-        <!-- grid for 16 wide columns (semantic-ui) -->
+        <!-- grid for 16 wide columns two dropdown lists (semantic-ui) -->
     <div class="ui grid">  
-        <div class="three wide column"></div> 
-            <div class="five wide column"> 
+        <div class="three wide computer one wide mobile column"></div> 
+            <div class="five wide computer seven wide mobile column"> 
               <select name="planets" class="ui dropdown" class="select" id="leftDropdown">
          <!--  https://semantic-ui.com/modules/dropdown.html-->             
                     <option value="0">Select</option>
@@ -36,8 +35,7 @@
                     <option value="pluto" data-index="8">Pluto*</option>
                 </select>
             </div>
-        
-            <div class="five wide column">
+            <div class="five wide computer seven wide mobile column">
               <select name="planets" class="ui dropdown" class="select" id="rightDropdown">
                     <option value="0" >Select</option>        
                     <option value="mercury" data-index2="0">Mercury</option>
@@ -51,27 +49,28 @@
                     <option value="pluto" data-index2="8">Pluto*</option>
                 </select>
             </div>
-          <div class="three wide column"></div> 
+          <div class="three wide computer one wide mobile column"></div> 
         </div>
 
-       
+       <!-- compare plnaets button  -->
         <div class="button">
-            <a input type ="button" value="search" id="planetSearchLeft" class=" btn waves-effect waves-red">Compare</a>
-        </div>
-          
+            <a input type ="button" value="search" id="planetSearchLeft" class="btn waves-effect waves-red">Compare</a>
+        </div>   
         
-        <div class="ui grid">  
+        <div class="ui grid">
+            <div class="row">
             <div class="three wide computer one wide mobile column"></div> 
-                <div class="five wide computer eight wide mobile column"> 
+                <div class="five wide computer seven wide mobile column"> 
                     <div class="textFormat" id="leftData"></div>
                     <div class="textFormat" id="leftData2"></div>
                 </div>
-                <div class="five wide computer eight wide mobile column">
+                <div class="five wide computer seven wide mobile column">
                     <div class="textFormat" id="rightData"></div>
                     <div class="textFormat" id="rightData2"></div>
                 </div>
             <div class="three wide computer one wide mobile column"></div>
-            </div>
+            </div> 
+        </div>
         
         <!-- button to transport to compare planets page -->
         <div class="button">
