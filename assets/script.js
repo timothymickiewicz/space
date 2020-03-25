@@ -131,7 +131,6 @@ function startTimer() {
 //   });
 // };
 
-
 function rightSolarData() {
     var userChoice = $("#select").find('option:selected').attr('data-index')
     $("#rightdata").empty();
@@ -309,12 +308,6 @@ $(document).ready(function() {
       rightSolarData();
     };
   });
-
-// for (var key in yourobject) {
-//   if (yourobject.hasOwnProperty(key)) {
-//      console.log(key, yourobject[key]);
-//   }
-// }
 
   $("#planetSearch").on("click", function() {
     event.preventDefault();
