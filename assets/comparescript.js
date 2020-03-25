@@ -109,20 +109,28 @@ function startTimer() {
 
   function solarSystem() {
     var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input;
-      $.ajax({
-      url: queryURL,
-      method: "GET"
+    $.ajax({
+    url: queryURL,
+    method: "GET"
     }).then(function(response) {
-      console.log(response);
-      console.log("Planet Name " + response.englishName);
-      console.log("Moons: " + response.moons.length);
-      console.log("Diameter (km): " + response.meanRadius * 2);
-      console.log("Density (kg/m&3): " + response.density * 1000);
-      console.log("Gravity (eq.,1 bar) (m/s&2): " + response.gravity);
-      console.log("Discovered By: " + response.discoveredBy);
-      console.log("Discovery Date: " + response.discoveryDate);
-    });
-}
+    var planetName = "Planet Name: " + response.englishName;
+    var diameter = "Diameter (km): " + response.meanRadius * 2;
+    var density = "Density (kg/m&3): " + response.density * 1000;
+    var gravity = "Gravity (eq.,1 bar) (m/s&2): " + response.gravity;
+    var discoveredBy = "Discovered By: " + response.discoveredBy;
+    var discoveryDate = "Discovery Date: " + response.discoveryDate;
+    var planetLeftData = [
+      planetName,diameter,density,gravity,discoveredBy, discoveryDate];
+    // Writes data to the left side of the page
+    function leftSolarData() {
+      for (var i = 0; i < planetLeftData.length; i++) {
+      var list = $("<li>");
+      list.addClass("leftList");
+      list.text(planetLeftData[i]);
+      //style with css using class "leftList"
+      $("#leftdata").append(list);
+      } ;
+    };
 
 //logic
 $(document).ready(function() {
