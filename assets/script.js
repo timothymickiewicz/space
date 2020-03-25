@@ -1,3 +1,5 @@
+
+//data for right list call
 let data = {
    
   "stats":[{
@@ -101,11 +103,11 @@ let data = {
 }]
 }
 
+//variables for page 
 var input = "";
 var countImages = 0;
 var randomImage = 0;
 let planetRightData = [];
-let availableStats = [];
 var key = planetSearch;
 var planetAPI = "";
 
@@ -117,20 +119,7 @@ function startTimer() {
   }, 1000);
 }
 
-//Can't figure out this code. need to take top variables, and iterate array onto page in list format based on user choice. All I'm getting is object Object
-// There is no loop in this function for it to recognize what i is
-// function rightSolarData() {
-//   data.stats.forEach(function(message, i) {
-//     var i = $(".dropdown").find(':selected').data('index');
-//     console.log('message index '+ i);
-//     Object.keys(message).forEach(function(prop) {   
-//       var i = $(".dropdown").find(':selected').data('index'); 
-//       console.log(message[prop]);
-//       console.log(i);
-//     });
-//   });
-// };
-
+//function for right data on index
 function rightSolarData() {
     var userChoice = $("#select").find('option:selected').attr('data-index')
     $("#rightdata").empty();
@@ -202,6 +191,7 @@ function solarSystem() {
   var discoveryDate = "Discovery Date: " + response.discoveryDate;
   var planetLeftData = [
     planetName,diameter,density,gravity,discoveredBy, discoveryDate];
+ 
   // Writes data to the left side of the page
   function leftSolarData() {
     for (var i = 0; i < planetLeftData.length; i++) {
@@ -210,12 +200,14 @@ function solarSystem() {
     list.text(planetLeftData[i]);
     //style with css using class "leftList"
     $("#leftdata").append(list);
-    } ;
+    };
   };
 
   leftSolarData();
   
-  //append moons here
+  
+  
+  //append moons list here
   $("h2").append("Moons of " + (input.charAt(0).toUpperCase() + input.substr(1).toLowerCase())).attr("id", "moonsOfPlanet");
   if (!$.trim(response.moons)) {
     $("<p>").appendTo("h2").text((input.charAt(0).toUpperCase() + input.substr(1).toLowerCase()) + " has no moons on record.").attr("id", "noMoons");
@@ -268,7 +260,7 @@ function emptyPage() {
   };
 };
 
-//change funtion to move planet gif
+//change function to move planet gif
 $( ".dropdown" ).change(function() {
   var carousel = document.getElementById('planetGif');
   var instance = M.Carousel.getInstance(carousel);
@@ -309,6 +301,7 @@ $(document).ready(function() {
     };
   });
 
+  //function to search planet images from API
   $("#planetSearch").on("click", function() {
     event.preventDefault();
     emptyPage();

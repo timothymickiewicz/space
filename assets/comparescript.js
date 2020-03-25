@@ -115,6 +115,8 @@ function solarDataAPI() {
     $.ajax({
       url: queryURL,
       method: "GET"
+    url: queryURL,
+    method: "GET"
     }).then(function(response) {
         console.log(response);
         var planetName = "Planet Name: " + response.englishName;
@@ -164,7 +166,7 @@ function solarDataAPI() {
         solarDataRight();
     });
 };
-       
+
 function emptyPage() {
     $("#randomImagesBtn").unbind();
     for (var j=0; j <= 7; j++) {
