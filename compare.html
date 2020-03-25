@@ -20,7 +20,7 @@
     <div class="ui grid">  
         <div class="three wide column"></div> 
             <div class="five wide column"> 
-              <select name="planets" class="ui dropdown" class="select">
+              <select name="planets" class="ui dropdown" class="select" id="leftDropdown">
          <!--  https://semantic-ui.com/modules/dropdown.html-->             
                     <option value="Mercury">Mercury</option>
                     <option value="Venus">Venus</option>
@@ -30,21 +30,30 @@
                     <option value="Uranus">Uranus</option>
                     <option value="Neptune">Neptune</option>
                     <option value="Pluto">Pluto*</option>
+                    <option value="mercury">Mercury</option>
+                    <option value="venus">Venus</option>
+                    <option value="earth">Earth</option>
+                    <option value="mars">Mars</option>
+                    <option value="jupiter">Jupiter</option>
+                    <option value="saturn">Saturn</option>
+                    <option value="uranus">Uranus</option>
+                    <option value="neptune">Neptune</option>
+                    <option value="pluto">Pluto*</option>
                 </select>
             </div>
         
             <div class="five wide column">
-              <select name="planets" class="ui dropdown" class="select">
+              <select name="planets" class="ui dropdown" class="select" id="rightDropdown">
                              
-                    <option value="Mercury">Mercury</option>
-                    <option value="Venus">Venus</option>
-                    <option value="Earth">Earth</option>
-                    <option value="Mars">Mars</option>
-                    <option value="Jupiter">Jupiter</option>
-                    <option value="Saturn">Saturn</option>
-                    <option value="Uranus">Uranus</option>
-                    <option value="Neptune">Neptune</option>
-                    <option value="Pluto">Pluto*</option>
+                    <option value="mercury">Mercury</option>
+                    <option value="venus">Venus</option>
+                    <option value="earth">Earth</option>
+                    <option value="mars">Mars</option>
+                    <option value="jupiter">Jupiter</option>
+                    <option value="saturn">Saturn</option>
+                    <option value="uranus">Uranus</option>
+                    <option value="neptune">Neptune</option>
+                    <option value="pluto">Pluto*</option>
                 </select>
             </div>
           <div class="three wide column"></div> 
@@ -54,12 +63,13 @@
          
         <div class="five wide column"></div>
             <div class="button">
-                <input type ="button" value="search" id="planetSearch" class=" btn waves-effect waves-red">
+                <input type ="button" value="search" id="planetSearchLeft" class=" btn waves-effect waves-red">
             </div>
           <div class="four wide column"></div>
              
               <div class="button">
-                <input type ="button" value="search" id="planetSearch" class=" btn waves-effect waves-red">
+                <input type ="button" value="search" id="planetSearchRight" class=" btn waves-effect waves-red">
+                
               </div>
             </div>
           </div>
@@ -68,9 +78,11 @@
             <div class="three wide column"></div> 
                 <div class="five wide column"> 
                     <h2 style="color:DodgerBlue;">Data 1</h2>
+                    <div id="leftData"></div>
                 </div>
                 <div class="five wide column">
                     <h2 style="color:DodgerBlue;">Data 2</h2>
+                    <div id="rightData"></div>
                 </div>
             <div class="three wide column"></div>
 
