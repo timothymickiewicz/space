@@ -1,4 +1,3 @@
-//data for right list call
 let data = {
    
     "stats":[{
@@ -105,8 +104,9 @@ let data = {
 var input = "";
 var input2 = "";
 
-//functions
-//start the time 
+// Functions
+
+// Starts timer for page
 function startTimer() {
     setInterval(function() {
         var currentTime = moment().add(1, "s").format("MMMM Do YYYY, h:mm:ss a");
@@ -127,7 +127,6 @@ function leftSolarData() {
   $("#leftData2").append(type, positionFromTheSun, lengthOfDay, orbitalPeriod, avgTemp, ringSystem, globalMagneticField);
 }
 
-
 function rightSolarData() {
   var userChoice = $("#rightDropdown").find('option:selected').attr('data-index2')
   $("#rightData2").empty();
@@ -141,7 +140,7 @@ function rightSolarData() {
   $("#rightData2").append(type, positionFromTheSun, lengthOfDay, orbitalPeriod, avgTemp, ringSystem, globalMagneticField);
 }
 
-//pulls data from the API to be appended to ul in html in li format
+// Pulls data from the API to be appended to ul in html in li format
 function solarDataAPI() {
     var queryURL = "https://api.le-systeme-solaire.net/rest/bodies/"+ input;
     $.ajax({
@@ -153,17 +152,27 @@ function solarDataAPI() {
         var diameter = "Diameter (km): " + response.meanRadius * 2;
         var density = "Density (kg/m&3): " + response.density * 1000;
         var gravity = "Gravity (eq.,1 bar) (m/s&2): " + response.gravity;
-        var discoveredBy = "Discovered By: " + response.discoveredBy;
-        var discoveryDate = "Discovery Date: " + response.discoveryDate;
+        // If no value is in these fields, run alternate text
+        if (response.discoveredBy) {
+          var discoveredBy = "Discovered By: " + response.discoveredBy;
+        }
+        else {
+          var discoveredBy = "Discovered By: This planet has always been known"
+        }
+        if (response.discoveryDate) {
+          var discoveryDate = "Discovery Date: " + response.discoveryDate;
+        }
+        else {
+          var discoveryDate = "Discovery Date: This planet has always been known"
+        }
         var planetData = [
-            planetName,diameter,density,gravity,discoveredBy, discoveryDate];
+            planetName,diameter,density,gravity,discoveredBy,discoveryDate];
         // Writes data to the left side of the page
         function solarDataLeft() {
             for (var i = 0; i < planetData.length; i++) {
                 var list = $("<li>");
                 list.addClass("textFormat");
                 list.text(planetData[i]);
-                //style with css using class "leftList"
                 $("#leftData").append(list);
             } ;
         };
@@ -180,17 +189,27 @@ function solarDataAPI() {
         var diameter = "Diameter (km): " + response.meanRadius * 2;
         var density = "Density (kg/m&3): " + response.density * 1000;
         var gravity = "Gravity (eq.,1 bar) (m/s&2): " + response.gravity;
-        var discoveredBy = "Discovered By: " + response.discoveredBy;
-        var discoveryDate = "Discovery Date: " + response.discoveryDate;
+        // If no value is in these fields, run alternate text
+        if (response.discoveredBy) {
+          var discoveredBy = "Discovered By: " + response.discoveredBy;
+        }
+        else {
+          var discoveredBy = "Discovered By: This planet has always been known"
+        }
+        if (response.discoveryDate) {
+          var discoveryDate = "Discovery Date: " + response.discoveryDate;
+        }
+        else {
+          var discoveryDate = "Discovered By: This planet has always been known"
+        }
         var planetData = [
-            planetName,diameter,density,gravity,discoveredBy, discoveryDate];
-        // Writes data to the left side of the page
+            planetName,diameter,density,gravity,discoveredBy,discoveryDate];
+        // Writes data to the right side of the page
         function solarDataRight() {
             for (var i = 0; i < planetData.length; i++) {
                 var list = $("<li>");
                 list.addClass("textFormat");
                 list.text(planetData[i]);
-                //style with css using class "leftList"
                 $("#rightData").append(list);
             };
         };
@@ -203,26 +222,27 @@ function emptyData() {
     $('#leftData').empty();
 };
 
-//logic
+// Logic
 $(document).ready(function() {
+    // On "enter" keypress
     $(document).on("keypress", function(x) {
         startTimer();
         if(x.which == 13) {
-            emptyData();
-            input = $("#leftDropdown").val();
-            input2 = $("#rightDropdown").val();
-            solarDataAPI();
-            rightSolarData();
-            leftSolarData();
+          emptyData();
+          input = $("#leftDropdown").val();
+          input2 = $("#rightDropdown").val();
+          solarDataAPI();
+          rightSolarData();
+          leftSolarData();
         };
     });
     $("#planetSearchLeft").on("click", function() {
-        emptyData();
-        input = $("#leftDropdown").val();
-        input2 = $("#rightDropdown").val();
-        $(".display").toggleClass("display");    
-        solarDataAPI();
-        rightSolarData();
-        leftSolarData();
-        });
+      emptyData();
+      input = $("#leftDropdown").val();
+      input2 = $("#rightDropdown").val();
+      $(".display").toggleClass("display");    
+      solarDataAPI();
+      rightSolarData();
+      leftSolarData();
+    });
 })

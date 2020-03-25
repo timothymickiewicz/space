@@ -196,67 +196,78 @@ function solarSystem() {
   url: queryURL,
   method: "GET"
   }).then(function(response) {
-  var planetName = "Planet Name: " + response.englishName;
-  var diameter = "Diameter (km): " + response.meanRadius * 2;
-  var density = "Density (kg/m&3): " + response.density * 1000;
-  var gravity = "Gravity (eq.,1 bar) (m/s&2): " + response.gravity;
-  var discoveredBy = "Discovered By: " + response.discoveredBy;
-  var discoveryDate = "Discovery Date: " + response.discoveryDate;
-  var planetLeftData = [
-    planetName,diameter,density,gravity,discoveredBy, discoveryDate];
- 
-  // Writes data to the left side of the page
-  function leftSolarData() {
-    for (var i = 0; i < planetLeftData.length; i++) {
-    var list = $("<li>");
-    list.addClass("leftList");
-    list.text(planetLeftData[i]);
-    //style with css using class "leftList"
-    $("#leftdata").append(list);
-    };
-  };
-  leftSolarData();
-
-  // Append moons list here
-  $("h2").append("Moons of " + (input.charAt(0).toUpperCase() + input.substr(1).toLowerCase())).attr("id", "moonsOfPlanet");
-  if (!$.trim(response.moons)) {
-    $("<p>").appendTo("h2").text((input.charAt(0).toUpperCase() + input.substr(1).toLowerCase()) + " has no moons on record.").attr("id", "noMoons");
-  }
-  else {
-    if (response.moons.length) {
-      let rowCount = Math.ceil(response.moons.length / 10);
-      for (var i=0; i < rowCount; i++) {
-        $("<tr>").attr("id", "newRow" + i).appendTo("tbody");
-      }
+    var planetName = "Planet Name: " + response.englishName;
+    var diameter = "Diameter (km): " + response.meanRadius * 2;
+    var density = "Density (kg/m&3): " + response.density * 1000;
+    var gravity = "Gravity (eq.,1 bar) (m/s&2): " + response.gravity;
+    // If no value is in these fields, run alternate text
+    if (response.discoveredBy) {
+      var discoveredBy = "Discovered By: " + response.discoveredBy;
     }
-    for (var i=0; i < response.moons.length; i++) {
-      if (i < 10) {
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow0");
-        }
-      else if (i >= 10 && i < 20) {
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow1");
-      }
-      else if (i >= 20 && i < 30) {
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow2");
-      }
-      else if (i >= 30 && i < 40) {
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow3");
-      }
-      else if (i >= 40 && i < 50) {
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow4");
-      }
-      else if (i >= 50 && i < 60) {
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow5");
-      }
-      else if (i >= 60 && i < 70) {
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow6");
-      }
-      else if (i >= 70 && i < 80) {
-        $("<td>").text(response.moons[i].moon).appendTo("#newRow7");
-      }
+    else {
+      var discoveredBy = "Discovered By: This planet has always been known"
+    }
+    if (response.discoveryDate) {
+      var discoveryDate = "Discovery Date: " + response.discoveryDate;
+    }
+    else {
+      var discoveryDate = "Discovery Date: This planet has always been known"
+    }
+    var planetLeftData = [
+      planetName,diameter,density,gravity,discoveredBy, discoveryDate];
+  
+    // Writes data to the left side of the page
+    function leftSolarData() {
+      for (var i = 0; i < planetLeftData.length; i++) {
+        var list = $("<li>");
+        list.addClass("leftList");
+        list.text(planetLeftData[i]);
+        //style with css using class "leftList"
+        $("#leftdata").append(list);
+      };
     };
-  };
-});
+    leftSolarData();
+
+    // Append moons list here
+    $("h2").append("Moons of " + (input.charAt(0).toUpperCase() + input.substr(1).toLowerCase())).attr("id", "moonsOfPlanet");
+    if (!$.trim(response.moons)) {
+      $("<p>").appendTo("h2").text((input.charAt(0).toUpperCase() + input.substr(1).toLowerCase()) + " has no moons on record.").attr("id", "noMoons");
+    }
+    else {
+      if (response.moons.length) {
+        let rowCount = Math.ceil(response.moons.length / 10);
+        for (var i=0; i < rowCount; i++) {
+          $("<tr>").attr("id", "newRow" + i).appendTo("tbody");
+        }
+      }
+      for (var i=0; i < response.moons.length; i++) {
+        if (i < 10) {
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow0");
+          }
+        else if (i >= 10 && i < 20) {
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow1");
+        }
+        else if (i >= 20 && i < 30) {
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow2");
+        }
+        else if (i >= 30 && i < 40) {
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow3");
+        }
+        else if (i >= 40 && i < 50) {
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow4");
+        }
+        else if (i >= 50 && i < 60) {
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow5");
+        }
+        else if (i >= 60 && i < 70) {
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow6");
+        }
+        else if (i >= 70 && i < 80) {
+          $("<td>").text(response.moons[i].moon).appendTo("#newRow7");
+        }
+      };
+    };
+  });
 };
 
 // Empties the existing content
@@ -291,6 +302,7 @@ $(document).ready(function() {
   $(".carousel").carousel();  
   startTimer();
   rotateCarousel();
+  
   $(document).on("keypress", function(x) {
     event.preventDefault();
     if(x.which == 13) {
@@ -311,7 +323,6 @@ $(document).ready(function() {
     };
   });
 
-  //function to search planet images from API
   $("#planetSearch").on("click", function() {
     event.preventDefault();
     emptyPage();
