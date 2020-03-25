@@ -56,24 +56,31 @@
 
        
         <div class="button">
-            <input type ="button" value="search" id="planetSearchLeft" class=" btn waves-effect waves-red">
+            <a input type ="button" value="search" id="planetSearchLeft" class=" btn waves-effect waves-red">Compare</a>
         </div>
           
         
         <div class="ui grid">  
             <div class="three wide column"></div> 
                 <div class="five wide column"> 
-                    <div id="leftData"></div>
+                    <div class="textFormat" id="leftData"></div>
+                    <div class="textFormat" id="leftData2"></div>
                 </div>
                 <div class="five wide column">
-                    <div id="rightData"></div>
+                    <div class="textFormat" id="rightData"></div>
+                    <div class="textFormat" id="rightData2"></div>
                 </div>
             <div class="three wide column"></div>
-
+            </div>
+        
+        <!-- button to transport to compare planets page -->
+        <div class="button">
+            <a input type ="button" href="index.html" value="compare" id="planetCompare" class="btn waves-effect waves-red">Return to homepage</a>
+        </div>
 
        
      
-    </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
