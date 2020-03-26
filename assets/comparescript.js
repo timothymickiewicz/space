@@ -147,7 +147,6 @@ function solarDataAPI() {
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-        
         var planetName = "Planet Name: " + response.englishName;
         var diameter = "Diameter (km): " + response.meanRadius * 2;
         var density = "Density (kg/m&3): " + response.density * 1000;
@@ -184,7 +183,6 @@ function solarDataAPI() {
         url: queryURL,
         method: "GET"
     }).then(function(response) {
-        
         var planetName = "Planet Name: " + response.englishName;
         var diameter = "Diameter (km): " + response.meanRadius * 2;
         var density = "Density (kg/m&3): " + response.density * 1000;
