@@ -37,17 +37,19 @@ LinkedIn -- https://www.linkedin.com/in/ryanhunterwilkinson/
 Email -- ryanhwilkinson@icloud.com
 =============================================================
 Karla Dayhoff:
-Github -- kddayhoff@gmail.com
+Github -- https://www.linkedin.com/in/kddayhoff/
 LinkedIn -- https://github.com/kddayhoff
-Email -- www.linkedin.com/in/kddayhoff
+Email -- kddayhoff@gmail.com
 =============================================================
 Kiara (Kiki) Mahan:
 Github -- https://github.com/KiaraM-glitch
+LinkedIn -- https://www.linkedin.com/in/kiara-mahan-aab60291/
 Email -- kiaranmahan@gmail.com
 =============================================================
 Timothy Mickiewicz:
-Github -- timothy.mickiewicz@gmail.com
-Email -- https://github.com/timothymickiewicz
+Github -- https://github.com/timothymickiewicz
+LinkingIn -- https://www.linkedin.com/in/timothymickiewicz1995/
+Email -- timothy.mickiewicz@gmail.com
 ​
 ## License
 ​
