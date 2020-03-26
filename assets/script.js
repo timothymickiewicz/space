@@ -209,13 +209,13 @@ function solarSystem() {
       var discoveredBy = "Discovered By: " + response.discoveredBy;
     }
     else {
-      var discoveredBy = "Discovered By: This planet has always been known"
+      var discoveredBy = "Discovered By: Data not filed with Nasa"
     }
     if (response.discoveryDate) {
       var discoveryDate = "Discovery Date: " + response.discoveryDate;
     }
     else {
-      var discoveryDate = "Discovery Date: This planet has always been known"
+      var discoveryDate = "Discovery Date: Data not filed with Nasa"
     }
     var planetLeftData = [
       planetName,diameter,density,gravity,discoveredBy, discoveryDate];
@@ -313,7 +313,7 @@ $(document).ready(function() {
       emptyPage();
       input = $(".dropdown").val();
       $(".display").toggleClass("display");
-      $(".visible").text("Check Out Some More Scenery");
+      $(".visible").text("Click to see more images");
       $(".hidden").text("See More Images of " + (input.charAt(0).toUpperCase() + input.substr(1).toLowerCase()));
       $("#randomImagesBtn").on("click", function() {
         $("#randomCarousel").fadeOut(1000, function() {
