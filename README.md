@@ -15,7 +15,7 @@ jQuery <br>
 Materialize <br>
 SymanticUI <br>
 Moment.js <br>
-AJAX< <br>
+AJAX<br>
 APIs <br>
 
 ## Installation
@@ -36,22 +36,22 @@ Ryan Wilkinson <br>
 Github -- https://github.com/ryanhun7er <br>
 LinkedIn -- https://www.linkedin.com/in/ryanhunterwilkinson/<br>
 Email -- ryanhwilkinson@icloud.com
-=============================================================
+-------------------------------------------------------------
 Karla Dayhoff:<br>
 Github -- https://www.linkedin.com/in/kddayhoff/<br>
 LinkedIn -- https://github.com/kddayhoff<br>
 Email -- kddayhoff@gmail.com<br>
-=============================================================
+-------------------------------------------------------------
 Kiara (Kiki) Mahan:
 Github -- https://github.com/KiaraM-glitch<br>
 LinkedIn -- https://www.linkedin.com/in/kiara-mahan-aab60291/<br>
 Email -- kiaranmahan@gmail.com<br>
-=============================================================
+-------------------------------------------------------------
 Timothy Mickiewicz:<br>
 Github -- https://github.com/timothymickiewicz<br>
 LinkedIn -- https://www.linkedin.com/in/timothymickiewicz1995/<br>
 Email -- timothy.mickiewicz@gmail.com
-=============================================================
+-------------------------------------------------------------
 
 ## License
 ​
