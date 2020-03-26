@@ -5,7 +5,7 @@ Live-link: https://ryanhun7er.github.io/space/
 ## Contributors
 Ryan Wilkinson 
 Karla Dayhoff 
-Kiara Mahan 
+Kiara Mahan
 Timothy Mickiewicz 
 ## Technologies
 HTML5
