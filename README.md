@@ -31,24 +31,25 @@ In order to ensure this code can be viewed correctly, it must be viewed in a web
 The instructor and TA's of VU's coding bootcamp. Seriously though.
 
 ## Contact
-Ryan Wilkinson
-Github -- https://github.com/ryanhun7er
-LinkedIn -- https://www.linkedin.com/in/ryanhunterwilkinson/
+
+Ryan Wilkinson <br>
+Github -- https://github.com/ryanhun7er <br>
+LinkedIn -- https://www.linkedin.com/in/ryanhunterwilkinson/<br>
 Email -- ryanhwilkinson@icloud.com
 =============================================================
-Karla Dayhoff:
-Github -- https://www.linkedin.com/in/kddayhoff/
-LinkedIn -- https://github.com/kddayhoff
-Email -- kddayhoff@gmail.com
+Karla Dayhoff:<br>
+Github -- https://www.linkedin.com/in/kddayhoff/<br>
+LinkedIn -- https://github.com/kddayhoff<br>
+Email -- kddayhoff@gmail.com<br>
 =============================================================
 Kiara (Kiki) Mahan:
-Github -- https://github.com/KiaraM-glitch
-LinkedIn -- https://www.linkedin.com/in/kiara-mahan-aab60291/
-Email -- kiaranmahan@gmail.com
+Github -- https://github.com/KiaraM-glitch<br>
+LinkedIn -- https://www.linkedin.com/in/kiara-mahan-aab60291/<br>
+Email -- kiaranmahan@gmail.com<br>
 =============================================================
-Timothy Mickiewicz:
-Github -- https://github.com/timothymickiewicz
-LinkingIn -- https://www.linkedin.com/in/timothymickiewicz1995/
+Timothy Mickiewicz:<br>
+Github -- https://github.com/timothymickiewicz<br>
+LinkedIn -- https://www.linkedin.com/in/timothymickiewicz1995/<br>
 Email -- timothy.mickiewicz@gmail.com
 ​
 ## License
