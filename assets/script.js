@@ -108,6 +108,8 @@ var input = "";
 var randomImage = 0;
 let planetRightData = [];
 var imagesArray = [];
+var removedDuplicates = "";
+var dupeArray = []
 
 // Adding current time to the page
 function startTimer() {
@@ -154,14 +156,15 @@ function randomImagesCarousel() {
     // Restricts the imageArray to only media_types of imagery and not still shots of videos, creates the imageArray pool of images
     for (var i=0; i < response.collection.items.length; i++) {
       if (response.collection.items[i].data[0].media_type == "image") {
-        imagesArray.push(response.collection.items[i].href);
+        imagesArray.push(response.collection.items[i].links[0].href);
       };
     };
     // Selects a random image from the NASA images API, removes it from the pool of images in order to prevent duplicates, and puts it onto the carousel
     for (var j = 0; j < 10; j++) {
       randomImage = Math.floor(Math.random() * imagesArray.length);
-      imagesArray.splice(imagesArray[randomImage], 1); i--; // i-- so that it doesn't skip the next image since the index will be set back by 1
-      $(".planetImage:eq(" + j + ")").attr("src", response.collection.items[randomImage].links[0].href);
+      $(".planetImage:eq(" + j + ")").attr("src", imagesArray[randomImage]);
+      removedDuplicates = imagesArray.splice(randomImage, 1);
+      dupeArray.push(removedDuplicates);
     };
   });
 };
@@ -177,14 +180,15 @@ function planetImagesCarousel() {
     // Restricts the imageArray to only media_types of imagery and not still shots of videos, creates the imageArray pool of images
     for (var i=0; i < response.collection.items.length; i++) {
       if (response.collection.items[i].data[0].media_type == "image") {
-        imagesArray.push(response.collection.items[i].href);
+        imagesArray.push(response.collection.items[i].links[0].href);
       };
     };
     // Selects a random image from the NASA images API, removes it from the pool of images in order to prevent duplicates, and puts it onto the carousel
     for (var j = 0; j < 10; j++) {
       randomImage = Math.floor(Math.random() * imagesArray.length);
-      imagesArray.splice(imagesArray[randomImage], 1); i--; // i-- so that it doesn't skip the next image since the index will be set back by 1
-      $(".planetImage:eq(" + j + ")").attr("src", response.collection.items[randomImage].links[0].href);
+      $(".planetImage:eq(" + j + ")").attr("src", imagesArray[randomImage]);
+      removedDuplicates = imagesArray.splice(randomImage, 1);
+      dupeArray.push(removedDuplicates);
     };
   });
 };
@@ -314,6 +318,7 @@ $(document).ready(function() {
       $("#randomImagesBtn").on("click", function() {
         $("#randomCarousel").fadeOut(1000, function() {
           randomImagesCarousel();
+          dupeArray = [];
       });
         $("#randomCarousel").fadeIn(1000);
       });  
@@ -333,6 +338,7 @@ $(document).ready(function() {
     $("#randomImagesBtn").on("click", function() {
       $("#randomCarousel").fadeOut(1000, function() {
         randomImagesCarousel();
+        dupeArray = [];
     });
       $("#randomCarousel").fadeIn(1000);
     });
