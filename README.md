@@ -51,7 +51,8 @@ Timothy Mickiewicz:<br>
 Github -- https://github.com/timothymickiewicz<br>
 LinkedIn -- https://www.linkedin.com/in/timothymickiewicz1995/<br>
 Email -- timothy.mickiewicz@gmail.com
-​
+=============================================================
+
 ## License
 ​
 MIT License
