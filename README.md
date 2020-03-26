@@ -24,9 +24,9 @@ To install this code, git clone the files from the following respository: https:
 ​
 ## Usage 
 ​
-In order to ensure this code can be viewed correctly, it must be viewed in a web browser, ideally Google Chrome as it has the best compatibility. You can do this using the following link: https://ryanhun7er.github.io/space/. The user can choose from a list of nine planets* that are in a dropdown menu and by clicking button "search". The carousel will change from a picture of the galaxy to the current planet selected. Information will be shown on each side of the carousel about the selected planets. A carousel below the main information is there should users want to look at more pictures associated with that planet. <br>
+In order to ensure this code can be viewed correctly, it must be viewed in a web browser, ideally Google Chrome as it has the best compatibility. You can do this using the following link: https://ryanhun7er.github.io/space/. The user can choose from a list of nine planets* that are in a dropdown menu and by clicking button 'search'. The carousel will change from a picture of the galaxy to the current planet selected. Information will be shown on each side of the carousel about the selected planets. A carousel below the main information is there should users want to look at more pictures associated with that planet. <br>
 
-A button that says "Compare the Planets" will take the user to a new page, where he/she can compare the stats from the previous page side-by-side. The user again picks a planet from each drop down menu and upon clicking 'search',the data from both planets will be shown next to each other.
+A button that says "Compare the Planets" will take the user to a new page, where he/she can compare the stats from the previous page side-by-side. The user again picks a planet from each drop down menu and upon clicking 'search', the data from both planets will be shown next to each other.
 
 ## Credits
 ​
