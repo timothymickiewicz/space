@@ -157,13 +157,13 @@ function solarDataAPI() {
           var discoveredBy = "Discovered By: " + response.discoveredBy;
         }
         else {
-          var discoveredBy = "Discovered By: This planet has always been known"
+          var discoveredBy = "Discovered By: Data not filed with Nasa"
         }
         if (response.discoveryDate) {
           var discoveryDate = "Discovery Date: " + response.discoveryDate;
         }
         else {
-          var discoveryDate = "Discovery Date: This planet has always been known"
+          var discoveryDate = "Discovery Date: Data not filed with Nasa"
         }
         var planetData = [
             planetName,diameter,density,gravity,discoveredBy,discoveryDate];
@@ -194,13 +194,13 @@ function solarDataAPI() {
           var discoveredBy = "Discovered By: " + response.discoveredBy;
         }
         else {
-          var discoveredBy = "Discovered By: This planet has always been known"
+          var discoveredBy = "Discovered By: Data not filed with Nasa"
         }
         if (response.discoveryDate) {
           var discoveryDate = "Discovery Date: " + response.discoveryDate;
         }
         else {
-          var discoveryDate = "Discovered By: This planet has always been known"
+          var discoveryDate = "Discovered Date: Data not filed with Nasa"
         }
         var planetData = [
             planetName,diameter,density,gravity,discoveredBy,discoveryDate];
