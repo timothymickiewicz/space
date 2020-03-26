@@ -3,20 +3,20 @@ This project was designed with the intent to introduce new coders to teamwork an
 
 Live-link: https://ryanhun7er.github.io/space/ 
 ## Contributors
-Ryan Wilkinson 
-Karla Dayhoff 
-Kiara Mahan
-Timothy Mickiewicz 
+Ryan Wilkinson <br>
+Karla Dayhoff <br>
+Kiara Mahan<br>
+Timothy Mickiewicz <br> 
 ## Technologies
-HTML5
-CSS3
-JavaScript 
-jQuery 
-Materialize
-SymanticUI
-Moment.js 
-AJAX
-APIs
+HTML5 <br>
+CSS3 <br>
+JavaScript <br> 
+jQuery <br>
+Materialize <br>
+SymanticUI <br>
+Moment.js <br>
+AJAX< <br>
+APIs <br>
 
 ## Installation
 
