@@ -1,6 +1,6 @@
 # Space Exploration
 
-<img src="assets/images/Space.jpg">
+<img id="mdImg" src="assets/images/Space.jpg">
 
 This project was designed with the intent to introduce new coders to teamwork and collaboration within the coding world. They chose to create a mobile-responsive website that allows users to explore data about the planets in our solar system
 
